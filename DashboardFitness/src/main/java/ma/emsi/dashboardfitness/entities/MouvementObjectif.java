@@ -7,10 +7,10 @@ import java.sql.Date;
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
-public class MouvementObjectif { //Objectif : perte ou gain d poids
+public class MouvementObjectif { // par exemple l'utilisateur veut atteindre 10000 pas  par jour
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private int idMouvementObjectif;
+    private Long idMouvementObjectif;
     private int nombreStep;
     private int nombreCalorie;
     private int nombreKm;
