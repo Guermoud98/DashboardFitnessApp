@@ -1,4 +1,6 @@
-package src.main.java.ma.emsi.dashboardfitness.repositories;
+package ma.emsi.dashboardfitness.repositories;
+import ma.emsi.dashboardfitness.entities.*;
+import org.springframework.data.jpa.repository.JpaRepository;
 
-public interface IEntrainementRepository {
+public interface IEntrainementRepository extends JpaRepository<Entrainement, Long> {
 }

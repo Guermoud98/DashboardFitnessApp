@@ -1,5 +1,8 @@
-package src.main.java.ma.emsi.dashboardfitness.repositories;
+package ma.emsi.dashboardfitness.repositories;
+import ma.emsi.dashboardfitness.entities.*;
 
-public interface IAdministrateurRepository {
+import org.springframework.data.jpa.repository.JpaRepository;
+
+public interface IAdministrateurRepository extends JpaRepository<Administrateur, Long> {
 
 }
