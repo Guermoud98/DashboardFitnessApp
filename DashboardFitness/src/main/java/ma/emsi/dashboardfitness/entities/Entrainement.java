@@ -1,4 +1,4 @@
 package DashboardFitness.src.main.java.ma.emsi.dashboardfitness.entities;
 
-public class Workout {
+public class Entrainement {
 }
