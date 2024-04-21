@@ -24,6 +24,7 @@ public class DashboardFitnessApplication implements CommandLineRunner  {
     public IUtilisateurRepository utilisateurRepository(EntityManager entityManager) {
         JpaRepositoryFactory factory = new JpaRepositoryFactory(entityManager);
         return factory.getRepository(IUtilisateurRepository.class);
+        //
     }
 
     public static void main(String[] args) {
