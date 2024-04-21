@@ -16,7 +16,7 @@ public class Entrainement { //workout : si l'objectif d'utilisateur  est perte/g
     private String description;
     @ManyToOne
     @JoinColumn(name="idNutrition")
-    private src.main.java.ma.emsi.dashboardfitness.entities.Nutrition nutrition;
+    private Nutrition nutrition;
 
 
 }
