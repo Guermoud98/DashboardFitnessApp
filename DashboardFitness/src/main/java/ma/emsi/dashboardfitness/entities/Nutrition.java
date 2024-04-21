@@ -1,4 +1,4 @@
-package src.main.java.ma.emsi.dashboardfitness.entities;
+package ma.emsi.dashboardfitness.entities;
 
 import jakarta.persistence.*;
 import lombok.*;

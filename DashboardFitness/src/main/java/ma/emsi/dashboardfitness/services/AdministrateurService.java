@@ -1,6 +1,7 @@
-package src.main.java.ma.emsi.dashboardfitness.services;
+package ma.emsi.dashboardfitness.services;
 
-import src.main.java.ma.emsi.dashboardfitness.repositories.IAdministrateurRepository;
+
+import ma.emsi.dashboardfitness.repositories.IAdministrateurRepository;
 
 public class AdministrateurService {
     private IAdministrateurRepository administrateurRepository;

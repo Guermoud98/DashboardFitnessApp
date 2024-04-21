@@ -1,4 +1,4 @@
-package src.main.java.ma.emsi.dashboardfitness.entities;
+package ma.emsi.dashboardfitness.entities;
 import jakarta.persistence.*;
 import lombok.*;
 import java.sql.Date;
@@ -16,7 +16,7 @@ public class Entrainement { //workout : si l'objectif d'utilisateur  est perte/g
     private String description;
     @ManyToOne
     @JoinColumn(name="idNutrition")
-    private Nutrition nutrition;
+    private src.main.java.ma.emsi.dashboardfitness.entities.Nutrition nutrition;
 
 
 }

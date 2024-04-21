@@ -1,11 +1,12 @@
-package src.main.java.ma.emsi.dashboardfitness;
+package ma.emsi.dashboardfitness;
 
+import ma.emsi.dashboardfitness.entities.Nutrition;
+import ma.emsi.dashboardfitness.repositories.INutritionRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
-import src.main.java.ma.emsi.dashboardfitness.entities.Nutrition;
-import src.main.java.ma.emsi.dashboardfitness.repositories.INutritionRepository;
+
 
 @SpringBootApplication
 public class DashboardFitnessApplication implements CommandLineRunner {
