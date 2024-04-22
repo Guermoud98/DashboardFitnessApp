@@ -1,5 +1,10 @@
 package ma.emsi.dashboardfitness.services;
 
+import ma.emsi.dashboardfitness.repositories.*;
+import ma.emsi.dashboardfitness.entities.*;
+
+
+
 
 import ma.emsi.dashboardfitness.entities.Utilisateur;
 import ma.emsi.dashboardfitness.repositories.IUtilisateurRepository;
@@ -18,7 +23,7 @@ public class UtilisateurService {
     }
 
 
-    ///Les methodes de validité d'email et  password/////////////////////////////////////////////
+    */Les methodes de validité d'email et  password */
 
     public boolean isValidEmail(String email) {
 
@@ -33,7 +38,7 @@ public class UtilisateurService {
         return password.matches(regex);
     }
 
-    ////////////////////////////////////////////////////////////////////////////////////
+    
 
     public Utilisateur Login (String email, String password) {
     Utilisateur utilisateur = utilisateurRepository.findByEmail(email);
@@ -53,4 +58,26 @@ public class UtilisateurService {
         }
        return  utilisateurRepository.save(utilisateur);
     }
+    /*
+    à tester dans le main
+    @Bean
+    public IUtilisateurRepository utilisateurRepository(EntityManager entityManager) {
+    JpaRepositoryFactory factory = new JpaRepositoryFactory(entityManager);
+    return factory.getRepository(IUtilisateurRepository.class);
+}
+
+    public static void main(String[] args) {
+        ApplicationContext context = new AnnotationConfigApplicationContext(DashboardFitnessApplication.class);
+        UtilisateurService utilisateurService = context.getBean(UtilisateurService.class);
+
+        Utilisateur utilisateur = new Utilisateur();
+        utilisateur.setNom("ettaleby");
+        utilisateur.setPrenom("neha");
+        utilisateur.setEmail("neha@gmail.com");
+        utilisateur.setPassword("Password123!");
+        utilisateur.setPoids(62);
+        utilisateur.setTaille(161);
+
+        utilisateurService.register(utilisateur);
+    * */
 }
