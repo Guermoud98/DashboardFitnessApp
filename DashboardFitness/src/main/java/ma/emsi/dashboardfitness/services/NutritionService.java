@@ -18,6 +18,12 @@ public class NutritionService {
     public void supprimerNutrition(Nutrition nutrition) {
         nutritionRepository.delete(nutrition);
     }
+    public void supprimerNutritionById(Long id) {
+        Nutrition existingNutrition = nutritionRepository.findById(id).orElse(null);
+        if(existingNutrition != null) {
+            nutritionRepository.delete(existingNutrition);
+        }
+    }
 
 
 }
