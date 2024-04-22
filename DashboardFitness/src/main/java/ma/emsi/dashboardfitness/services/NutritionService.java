@@ -14,5 +14,10 @@ public class NutritionService {
     public void ajouterNutrition(Nutrition nutrition) {
         nutritionRepository.save(nutrition);
     }
+    //supprimer une nutrition par l'admin de la base de donnee
+    public void supprimerNutrition(Nutrition nutrition) {
+        nutritionRepository.delete(nutrition);
+    }
+
 
 }
