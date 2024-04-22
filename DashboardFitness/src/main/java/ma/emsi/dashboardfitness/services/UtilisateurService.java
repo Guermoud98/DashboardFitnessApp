@@ -23,7 +23,7 @@ public class UtilisateurService {
     }
 
 
-    */Les methodes de validité d'email et  password */
+    /*Les methodes de validité d'email et  password */
 
     public boolean isValidEmail(String email) {
 
