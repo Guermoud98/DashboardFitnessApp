@@ -1,10 +1,11 @@
-package src.main.java.ma.emsi.dashboardfitness.services;
+package ma.emsi.dashboardfitness.services;
 
 
+import ma.emsi.dashboardfitness.entities.Utilisateur;
+import ma.emsi.dashboardfitness.repositories.IUtilisateurRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
-import src.main.java.ma.emsi.dashboardfitness.entities.Utilisateur;
-import src.main.java.ma.emsi.dashboardfitness.repositories.IUtilisateurRepository;
+
 
 @Service
 public class UtilisateurService {
