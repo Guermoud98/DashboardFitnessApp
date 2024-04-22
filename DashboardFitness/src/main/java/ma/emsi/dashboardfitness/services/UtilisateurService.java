@@ -1,7 +1,13 @@
 package ma.emsi.dashboardfitness.services;
+
 import ma.emsi.dashboardfitness.repositories.*;
 import ma.emsi.dashboardfitness.entities.*;
 
+
+
+
+import ma.emsi.dashboardfitness.entities.Utilisateur;
+import ma.emsi.dashboardfitness.repositories.IUtilisateurRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -17,7 +23,7 @@ public class UtilisateurService {
     }
 
 
-    ///Les methodes de validité d'email et  password/////////////////////////////////////////////
+    */Les methodes de validité d'email et  password */
 
     public boolean isValidEmail(String email) {
 
@@ -32,7 +38,7 @@ public class UtilisateurService {
         return password.matches(regex);
     }
 
-    ////////////////////////////////////////////////////////////////////////////////////
+    
 
     public Utilisateur Login (String email, String password) {
     Utilisateur utilisateur = utilisateurRepository.findByEmail(email);

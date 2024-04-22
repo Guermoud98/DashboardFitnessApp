@@ -5,7 +5,7 @@ import ma.emsi.dashboardfitness.repositories.IAdministrateurRepository;
 
 public class AdministrateurService {
     private IAdministrateurRepository administrateurRepository;
-
+    //couplage faible
     public AdministrateurService(IAdministrateurRepository administrateurRepository) {
         this.administrateurRepository = administrateurRepository;
     }
