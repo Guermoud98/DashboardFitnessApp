@@ -3,6 +3,10 @@ package ma.emsi.dashboardfitness.services;
 import ma.emsi.dashboardfitness.entities.Nutrition;
 import ma.emsi.dashboardfitness.repositories.INutritionRepository;
 
+import java.util.List;
+
+import static org.hibernate.internal.util.collections.ArrayHelper.forEach;
+
 public class NutritionService {
     private INutritionRepository nutritionRepository;
     // couplage faible
@@ -37,6 +41,15 @@ public class NutritionService {
             existingNutrition.setGraisse(updatedNutrition.getGraisse());
             nutritionRepository.save(existingNutrition);
         }
+    }
+    //afficher toutes les nutritions
+    public void afficherNutritions() {
+        List<Nutrition > nutritions= nutritionRepository.findAll();
+        nutritions.forEach(System.out::println);
+        /* Différence entre System.out.println() et System.out::println lors de l'utilisation de forEach :
+         - System.out.println() : Imprime l'objet lui-même (probablement son adresse mémoire) pour chaque élément de la liste.
+         - System.out::println : Fournit une référence à la méthode println, qui est ensuite appelée pour imprimer le contenu réel de chaque élément.
+        */
     }
 
 
