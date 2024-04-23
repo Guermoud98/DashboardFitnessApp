@@ -19,4 +19,12 @@ public class ExerciceService {
     public void supprimerexercice(Exercice exercice) {
         exerciceRepository.delete(exercice);
     }
+    //supprimer un exercice en se basant sur son ID
+    public void supprimerNutritionById(Long id) {
+        boolean existingExercice = exerciceRepository.findById(id).isPresent();
+        if(existingExercice) {
+            System.out.println("suppression de l'exercice qui a l'id: " + id);
+            exerciceRepository.deleteById(id);
+        }
+    }
 }
