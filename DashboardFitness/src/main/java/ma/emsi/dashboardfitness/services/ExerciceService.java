@@ -43,7 +43,10 @@ public class ExerciceService {
         }
     }
     //afficher tous les exercices
-    public List<Exercice > afficherExercices() {
+    public List<Exercice> afficherExercices() {
         return exerciceRepository.findAll();
+    }
+    public Exercice getExerciceId(Long id) {
+        return exerciceRepository.findById(id).orElse(null);
     }
 }
