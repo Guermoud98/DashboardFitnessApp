@@ -7,7 +7,7 @@ import org.springframework.stereotype.Service;
 @Service
 public class AdministrateurService {
     private IAdministrateurRepository administrateurRepository;
-
+    //couplage faible
     public AdministrateurService(IAdministrateurRepository administrateurRepository) {
         this.administrateurRepository = administrateurRepository;
     }
