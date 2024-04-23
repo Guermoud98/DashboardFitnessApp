@@ -43,14 +43,10 @@ public class NutritionService {
         }
     }
     //afficher toutes les nutritions
-    public void afficherNutritions() {
-        List<Nutrition > nutritions= nutritionRepository.findAll();
-        nutritions.forEach(System.out::println);
-        /* Différence entre System.out.println() et System.out::println lors de l'utilisation de forEach :
-         - System.out.println() : Imprime l'objet lui-même (probablement son adresse mémoire) pour chaque élément de la liste.
-         - System.out::println : Fournit une référence à la méthode println, qui est ensuite appelée pour imprimer le contenu réel de chaque élément.
-        */
+    public List<Nutrition > afficherNutritions() {
+        return nutritionRepository.findAll();
     }
+
 
 
 }
