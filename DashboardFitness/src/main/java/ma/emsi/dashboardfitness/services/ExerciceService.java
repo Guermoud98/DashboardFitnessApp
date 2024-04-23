@@ -15,4 +15,8 @@ public class ExerciceService {
     public void ajouterExercice(Exercice exercice) {
         exerciceRepository.save(exercice);
     }
+    //supprimer un exercice par l'admin de la base de donnee
+    public void supprimerexercice(Exercice exercice) {
+        exerciceRepository.delete(exercice);
+    }
 }
