@@ -18,10 +18,24 @@ public class NutritionService {
     public void supprimerNutrition(Nutrition nutrition) {
         nutritionRepository.delete(nutrition);
     }
+    //supprimer une Nutrition en se basant sur son ID
     public void supprimerNutritionById(Long id) {
+        boolean existingNutrition = nutritionRepository.findById(id).isPresent();
+        if(existingNutrition) {
+            System.out.println("suppression de la nutrition qui a l'id: " + id);
+            nutritionRepository.deleteById(id);
+        }
+    }
+    // update d'une nutrition
+    public void modifierNutrition(Long id , Nutrition updatedNutrition) {
         Nutrition existingNutrition = nutritionRepository.findById(id).orElse(null);
         if(existingNutrition != null) {
-            nutritionRepository.delete(existingNutrition);
+            existingNutrition.setNomNutrition(updatedNutrition.getNomNutrition());
+            existingNutrition.setType(updatedNutrition.getType());
+            existingNutrition.setCalorie(updatedNutrition.getCalorie());
+            existingNutrition.setProteine(updatedNutrition.getProteine());
+            existingNutrition.setGraisse(updatedNutrition.getGraisse());
+            nutritionRepository.save(existingNutrition);
         }
     }
 
