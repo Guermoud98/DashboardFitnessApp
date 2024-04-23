@@ -19,4 +19,25 @@ public class ExerciceService {
     public void supprimerexercice(Exercice exercice) {
         exerciceRepository.delete(exercice);
     }
+    //supprimer un exercice en se basant sur son ID
+    public void supprimerExerciceById(Long id) {
+        boolean existingExercice = exerciceRepository.findById(id).isPresent();
+        if(existingExercice) {
+            System.out.println("suppression de l'exercice qui a l'id: " + id);
+            exerciceRepository.deleteById(id);
+        }
+    }
+    // update d'un exercice
+    public void modifierExercice(Long id , Exercice updatedExercice) {
+        Exercice existingExercice = exerciceRepository.findById(id).orElse(null);
+        if(existingExercice != null) {
+            existingExercice.setDescription(updatedExercice.getDescription());
+            existingExercice.setDuree(updatedExercice.getDuree());
+            existingExercice.setEntrainement(updatedExercice.getEntrainement());
+            existingExercice.setImage(updatedExercice.getImage());
+            existingExercice.setNom(updatedExercice.getNom());
+            existingExercice.setNombreDeRep(updatedExercice.getNombreDeRep());
+            exerciceRepository.save(existingExercice);
+        }
+    }
 }
