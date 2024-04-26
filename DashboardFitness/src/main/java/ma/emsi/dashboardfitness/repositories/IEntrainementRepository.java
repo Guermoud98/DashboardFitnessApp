@@ -6,7 +6,7 @@ import ma.emsi.dashboardfitness.entities.Nutrition;
 import org.springframework.data.jpa.repository.JpaRepository;
 
 public interface IEntrainementRepository extends JpaRepository<Entrainement, Long> {
-    Entrainement findByName(String name);
+    Entrainement findByNom(String name);
     Entrainement findByDuree(int duree);
     Entrainement findByNutrition (Nutrition nutrition);
 

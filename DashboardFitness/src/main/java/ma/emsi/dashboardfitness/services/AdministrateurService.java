@@ -12,7 +12,7 @@ public class AdministrateurService {
         this.administrateurRepository = administrateurRepository;
     }
     public boolean AdminLogin(String username, String password) {
-        if(administrateurRepository.findLoginAndPassword(username,password)) {
+        if(administrateurRepository.findByLoginAndPassword(username,password)) {
             System.out.println("Welcome " + username);
         }
         else {
