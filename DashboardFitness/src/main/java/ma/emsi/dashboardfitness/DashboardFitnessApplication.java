@@ -1,3 +1,4 @@
+
 package ma.emsi.dashboardfitness;
 
 import ma.emsi.dashboardfitness.entities.Nutrition;

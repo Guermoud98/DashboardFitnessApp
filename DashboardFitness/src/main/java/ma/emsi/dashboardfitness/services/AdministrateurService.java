@@ -2,7 +2,9 @@ package ma.emsi.dashboardfitness.services;
 
 
 import ma.emsi.dashboardfitness.repositories.IAdministrateurRepository;
+import org.springframework.stereotype.Service;
 
+@Service
 public class AdministrateurService {
     private IAdministrateurRepository administrateurRepository;
     //couplage faible
