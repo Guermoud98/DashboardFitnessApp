@@ -14,6 +14,8 @@ public class Entrainement { //workout : si l'objectif d'utilisateur  est perte/g
     private String nom;
     private long duree;
     private String description;
+    private double imcMin;
+    private double imcMax;
     @ManyToOne
     @JoinColumn(name="idNutrition")
     private Nutrition nutrition;
