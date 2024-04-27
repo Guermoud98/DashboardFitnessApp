@@ -23,6 +23,7 @@ public class NutritionRepositoryTest {
         Nutrition nutrition = Nutrition.builder()
                 .idNutrition(null).nomNutrition("test")
                 .type("test").graisse(12).calorie(11).proteine(5).build();
+        //Nutrition existingNutrition = nutritionRepository.findByNa
         Nutrition savedNutrition= nutritionRepository.save(nutrition);
         assertNotNull(savedNutrition);
         assertNotNull(savedNutrition.getIdNutrition());
