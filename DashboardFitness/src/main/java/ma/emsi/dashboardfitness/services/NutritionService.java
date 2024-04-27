@@ -5,8 +5,6 @@ import ma.emsi.dashboardfitness.repositories.INutritionRepository;
 
 import java.util.List;
 
-import static org.hibernate.internal.util.collections.ArrayHelper.forEach;
-
 public class NutritionService {
     private INutritionRepository nutritionRepository;
     // couplage faible
@@ -51,7 +49,7 @@ public class NutritionService {
     }
     //chercher une nutrition en se basant de son nom
     public Nutrition chercherNutritionParNom(String name) {
-        return nutritionRepository.findByName(name);
+        return nutritionRepository.findByNomNutrition(name);
     }
 
 }
