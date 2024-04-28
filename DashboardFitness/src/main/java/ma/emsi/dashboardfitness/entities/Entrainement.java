@@ -7,6 +7,7 @@ import java.sql.Date;
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
+@Builder
 public class Entrainement { //workout : si l'objectif d'utilisateur  est perte/gain  du poids
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
