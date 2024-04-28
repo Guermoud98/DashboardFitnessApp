@@ -7,6 +7,9 @@ import ma.emsi.dashboardfitness.repositories.IEntrainementRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.util.List;
+import java.util.Optional;
+
 @Service
 public class EntrainementService {
     private final IEntrainementRepository entrainementRepository;
@@ -19,15 +22,16 @@ public class EntrainementService {
         this.utilisateurService = utilisateurService;
     }
 
-    public Entrainement findEntrainementByName(String name) {
-        return entrainementRepository.findByNom(name);
+   public List<Entrainement> findEntrainementByName(String name) {
+        List<Entrainement>result=entrainementRepository.findByNom(name);
+        return result;
     }
 
-    public Entrainement findEntrainementByDuree(int duree) {
+    public Optional<Entrainement> findEntrainementByDuree(int duree) {
         return entrainementRepository.findByDuree(duree);
     }
 
-    public Entrainement findEntrainementByNutrition(Nutrition nutrition) {
+    public Optional<Entrainement> findEntrainementByNutrition(Nutrition nutrition) {
         return entrainementRepository.findByNutrition(nutrition);
     }
    /* public Entrainement suggestEntrainement(Utilisateur utilisateur) {
