@@ -11,12 +11,17 @@ public class Utilisateur {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long idUtilisateur ;
+
     private String nom;
     private String prenom;
+
+    @Column(unique = true)
     private String email;
+
     private String password;
     private int poids;
     private int taille;
+
     @ManyToOne
     @JoinColumn(name = "idEntrainement")
     private Entrainement entrainement;
