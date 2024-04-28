@@ -5,5 +5,5 @@ import ma.emsi.dashboardfitness.entities.Nutrition;
 import org.springframework.data.jpa.repository.JpaRepository;
 
 public interface INutritionRepository extends JpaRepository<Nutrition, Long> {
-    Nutrition findByName(String name);
+    //Nutrition findByNomNutrition(String name);
 }

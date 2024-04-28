@@ -50,8 +50,8 @@ public class NutritionService {
         return nutritionRepository.findById(id).orElse(null);
     }
     //chercher une nutrition en se basant de son nom
-    public Nutrition chercherNutritionParNom(String name) {
-        return nutritionRepository.findByName(name);
-    }
+    /*public Nutrition chercherNutritionParNom(String name) {
+        return nutritionRepository.findByNomNutrition(name);
+    }*/
 
 }
