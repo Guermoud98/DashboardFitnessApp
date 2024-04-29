@@ -2,6 +2,7 @@ package ma.emsi.dashboardfitness.entities;
 import jakarta.persistence.*;
 import lombok.*;
 import java.sql.Date;
+import java.util.Objects;
 
 @Entity
 @Data
@@ -20,6 +21,7 @@ public class Entrainement { //workout : si l'objectif d'utilisateur  est perte/g
     @ManyToOne
     @JoinColumn(name="idNutrition")
     private Nutrition nutrition;
+
 
 
 }
