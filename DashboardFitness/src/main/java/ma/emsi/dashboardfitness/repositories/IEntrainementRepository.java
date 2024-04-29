@@ -10,9 +10,8 @@ import java.util.List;
 import java.util.Optional;
 
 public interface IEntrainementRepository extends JpaRepository<Entrainement, Long> {
-    List<Entrainement> findByNom(String name);
-    Optional<Entrainement> findByDuree(long duree);
-    Optional<Entrainement> findByNutrition (Nutrition nutrition);
+    List<Entrainement> findByNomContaining(String name);
+    List<Entrainement> findByDuree(long duree);
     @Query("SELECT e FROM Entrainement e WHERE e.imcMin <= :imc AND e.imcMax >= :imc")
-    Optional<Entrainement> findByIMCRange(double imc);
+    List<Entrainement> findByIMCRange(double imc);
 }
