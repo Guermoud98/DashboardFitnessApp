@@ -6,5 +6,5 @@ import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 
 public interface IAdministrateurRepository extends JpaRepository<Administrateur, Long> {
-    boolean findByLoginAndPassword(String login, String password);
+    Administrateur findByLoginAndPassword(String login, String password);
 }

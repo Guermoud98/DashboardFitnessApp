@@ -1,7 +1,9 @@
 package ma.emsi.dashboardfitness.entities;
 import jakarta.persistence.*;
 import lombok.*;
+import org.hibernate.annotations.Cascade;
 
+@Builder
 @Entity
 @Data
 @AllArgsConstructor
@@ -17,6 +19,7 @@ public class Exercice {
         private byte[] image;
         private String description;// l'objectif de cet exercice
         @ManyToOne
+
         @JoinColumn(name = "idEntrainement")
         private Entrainement entrainement;
 

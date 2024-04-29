@@ -1,6 +1,7 @@
 package ma.emsi.dashboardfitness.services;
 
 
+import ma.emsi.dashboardfitness.entities.Administrateur;
 import ma.emsi.dashboardfitness.repositories.IAdministrateurRepository;
 import org.springframework.stereotype.Service;
 
@@ -11,15 +12,13 @@ public class AdministrateurService {
     public AdministrateurService(IAdministrateurRepository administrateurRepository) {
         this.administrateurRepository = administrateurRepository;
     }
-    public boolean AdminLogin(String username, String password) {
-        if(administrateurRepository.findByLoginAndPassword(username,password)) {
+    public Administrateur AdminLogin(String username, String password) {
+        Administrateur administrateur = administrateurRepository.findByLoginAndPassword(username,password);
+        if(administrateur != null) {
             System.out.println("Welcome " + username);
+            return administrateur;
         }
-        else {
-            System.out.println("Invalid username or password");
-            return false;
-        }
-        return true;
+        return null;
     }
 
 }

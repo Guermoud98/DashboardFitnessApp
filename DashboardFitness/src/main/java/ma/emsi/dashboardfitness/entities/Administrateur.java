@@ -3,6 +3,7 @@ package ma.emsi.dashboardfitness.entities;
 import jakarta.persistence.*;
 import lombok.*;
 
+@Builder
 @Entity
 @Data
 @NoArgsConstructor
