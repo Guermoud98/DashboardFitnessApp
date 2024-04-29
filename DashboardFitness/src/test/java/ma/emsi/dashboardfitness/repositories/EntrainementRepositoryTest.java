@@ -72,7 +72,7 @@ public class EntrainementRepositoryTest {
                         .nom("WorkoutForStrongGlutes")
                         .duree(40)
                         .imcMax(60)
-                        .imcMin(20)
+                        .imcMin(70)
                         .description("for get a strong glutes ")
                         .build()
                 ,
