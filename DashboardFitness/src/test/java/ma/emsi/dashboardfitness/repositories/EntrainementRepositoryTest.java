@@ -66,58 +66,104 @@ public class EntrainementRepositoryTest {
     }
     @Test
     public void Should_Find_Entrainement_by_Nom() {
-        String keyword = "glutes";
+        String keyword = "Glutes";
         List<Entrainement> expected= List.of(
                 Entrainement.builder()
+                        .idEntrainement(1L)
                         .nom("WorkoutForStrongGlutes")
                         .duree(40)
                         .imcMax(60)
-                        .imcMin(70)
+                        .imcMin(20)
                         .description("for get a strong glutes ")
+                        .nutrition(Nutrition.builder()
+                                .idNutrition(1L)
+                                .nomNutrition("Glute-Building Meal")
+                                .type("Pre-workout")
+                                .graisse(10) // in grams
+                                .calorie(400) // in calories
+                                .proteine(25) // in grams
+                                .build())
                         .build()
                 ,
         Entrainement.builder()
+                .idEntrainement(2L)
                 .nom("WorkoutForWeakGlutes")
                 .duree(30)
                 .imcMax(120)
                 .imcMin(70)
                 .description("for get a weak  glutes ")
+                .nutrition(Nutrition.builder()
+                                .idNutrition(2L)
+                                .nomNutrition("Glute-Strengthening Meal")
+                                .type("Post-workout")
+                                .graisse(8) // in grams
+                                .calorie(350) // in calories
+                                .proteine(20) // in grams
+                                .build())
                 .build()
         );
 
         List<Entrainement> result =entrainementRepository.findByNomContaining(keyword);
-       AssertionsForClassTypes.assertThat(result).isNotNull();
+        Assertions.assertThat(result).isNotNull();
+        Assertions.assertThat(result).isEqualTo(expected);
+        Assertions.assertThat(result.size()).isEqualTo(expected.size());
+        Assertions.assertThat(result.size()).isEqualTo(2);
     }
     @Test
     public void Should_Find_Entrainement_by_Duree() {
         long givenDuree=30;
-        List<Entrainement> expected= List.of( Entrainement.builder()
+        List<Entrainement> expected= List.of(  Entrainement.builder()
+                .idEntrainement(2L)
                 .nom("WorkoutForWeakGlutes")
                 .duree(30)
                 .imcMax(120)
                 .imcMin(70)
                 .description("for get a weak  glutes ")
+                .nutrition(Nutrition.builder()
+                        .idNutrition(2L)
+                        .nomNutrition("Glute-Strengthening Meal")
+                        .type("Post-workout")
+                        .graisse(8) // in grams
+                        .calorie(350) // in calories
+                        .proteine(20) // in grams
+                        .build())
                 .build()
+
         );
         List<Entrainement> result =entrainementRepository.findByDuree(givenDuree);
-        AssertionsForClassTypes.assertThat(result).isNotNull();
+        Assertions.assertThat(result).isNotNull();
+        Assertions.assertThat(result).isEqualTo(expected);
+        Assertions.assertThat(result.size()).isEqualTo(expected.size());
+        Assertions.assertThat(result.size()).isEqualTo(1);
     }
 
 @Test
     public void Should_Find_Entrainement_by_Imc() {
         double imc=90;
-         List<Entrainement> expected= List.of( Entrainement.builder()
-            .nom("WorkoutForWeakGlutes")
-            .duree(30)
-            .imcMax(120)
-            .imcMin(70)
-            .description("for get a weak  glutes ")
-            .build()
+         List<Entrainement> expected= List.of(  Entrainement.builder()
+                 .idEntrainement(2L)
+                 .nom("WorkoutForWeakGlutes")
+                 .duree(30)
+                 .imcMax(120)
+                 .imcMin(70)
+                 .description("for get a weak  glutes ")
+                 .nutrition(Nutrition.builder()
+                         .idNutrition(2L)
+                         .nomNutrition("Glute-Strengthening Meal")
+                         .type("Post-workout")
+                         .graisse(8) // in grams
+                         .calorie(350) // in calories
+                         .proteine(20) // in grams
+                         .build())
+                 .build()
          );
 
         List<Entrainement>result=entrainementRepository.findByIMCRange(imc);
-        AssertionsForClassTypes.assertThat(result).isNotNull();
-      for (Entrainement entrainement : result) {
+        Assertions.assertThat(result).isNotNull();
+        Assertions.assertThat(result).isEqualTo(expected);
+        Assertions.assertThat(result.size()).isEqualTo(expected.size());
+        Assertions.assertThat(result.size()).isEqualTo(1);
+       for (Entrainement entrainement : result) {
         AssertionsForClassTypes.assertThat(entrainement.getImcMin()).isLessThanOrEqualTo(imc);
         AssertionsForClassTypes.assertThat(entrainement.getImcMax()).isGreaterThanOrEqualTo(imc);
         System.out.println(entrainement);
