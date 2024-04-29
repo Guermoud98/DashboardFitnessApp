@@ -1,8 +1,8 @@
-package ma.emsi.dashboardfitness.repositories;
+package ma.emsi.dashboardfitness.services;
 
 
 import ma.emsi.dashboardfitness.entities.Nutrition;
-import ma.emsi.dashboardfitness.services.NutritionService;
+import ma.emsi.dashboardfitness.repositories.INutritionRepository;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
 import org.mockito.InjectMocks;
@@ -37,7 +37,8 @@ public class NutritionServiceTest {
         // Cette ligne définit un comportement simulé pour la méthode save du repository
         given(nutritionRepository.save(nutrition)).willReturn(nutrition);
         // La méthode qu'on veut tester
-        nutritionService.ajouterNutrition(nutrition);
+        Nutrition savedNutrition = nutritionService.ajouterNutrition(nutrition);
+        assertNotNull(savedNutrition);
         /*La ligne verify vérifie si le comportement simulé qu'on a défini avec given
          correspond à ce qui se passe réellement lorsqu'on appelle la méthode ajouterNutrition
          du service*/

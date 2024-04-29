@@ -15,8 +15,8 @@ public class NutritionService {
     }
 
     //ajouter une nutrition par l'admin a la base de donnee
-    public void ajouterNutrition(Nutrition nutrition) {
-        nutritionRepository.save(nutrition);
+    public Nutrition ajouterNutrition(Nutrition nutrition) {
+        return nutritionRepository.save(nutrition);
     }
     //supprimer une nutrition par l'admin de la base de donnee
     public void supprimerNutrition(Nutrition nutrition) {
