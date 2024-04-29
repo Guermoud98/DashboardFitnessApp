@@ -51,7 +51,7 @@ public class NutritionService {
     }
     //chercher une nutrition en se basant de son nom
     public List<Nutrition> chercherNutritionParNom(String name) {
-        return nutritionRepository.findByNomNutritionContaining(name);
+        return nutritionRepository.findByNomNutritionContainingIgnoreCase(name);
     }
 
 }
