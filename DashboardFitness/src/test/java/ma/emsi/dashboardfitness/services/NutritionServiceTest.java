@@ -18,7 +18,6 @@ import static org.mockito.BDDMockito.given;
 import static org.mockito.Mockito.*;
 
 @DataJpaTest
-//@AutoConfigureTestDatabase(connection = EmbeddedDatabaseConnection.H2)
 @ExtendWith(MockitoExtension.class)
 public class NutritionServiceTest {
 
@@ -51,30 +50,7 @@ public class NutritionServiceTest {
 
     }
 
-    /*
-    @Autowired
-    private INutritionRepository nutritionRepository;
 
-    @Test
-    public void INutritionRepository_AjouterNutrition_ReturnSavedNutrition() {
-        Nutrition nutrition = Nutrition.builder()
-                .idNutrition(null).nomNutrition("test")
-                .type("test").graisse(12).calorie(11).proteine(5).build();
-        //on cherche le nom de la nutrition
-        Nutrition existingNutrition = nutritionRepository.findByNomNutrition(nutrition.getNomNutrition());
-        //s'il n'existe pas dans la bd
-        if (existingNutrition == null) {
-            Nutrition savedNutrition= nutritionRepository.save(nutrition);
-            assertNotNull(savedNutrition);
-            assertNotNull(savedNutrition.getIdNutrition());
-        }
-        //s'il existe
-        else {
-            assertNull(existingNutrition.getIdNutrition());
-
-        }
-    }
-    */
 
 
 }
