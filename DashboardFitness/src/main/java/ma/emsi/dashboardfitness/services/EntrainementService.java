@@ -7,6 +7,9 @@ import ma.emsi.dashboardfitness.repositories.IEntrainementRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.util.List;
+import java.util.Optional;
+
 @Service
 public class EntrainementService {
     private final IEntrainementRepository entrainementRepository;
@@ -19,25 +22,24 @@ public class EntrainementService {
         this.utilisateurService = utilisateurService;
     }
 
-    public Entrainement findEntrainementByName(String name) {
-        return entrainementRepository.findByNom(name);
+   public List<Entrainement> findEntrainementByName(String name) {
+        List<Entrainement>result=entrainementRepository.findByNomContaining(name);
+        return result;
     }
 
-    public Entrainement findEntrainementByDuree(int duree) {
+    public List<Entrainement> findEntrainementByDuree(int duree) {
         return entrainementRepository.findByDuree(duree);
     }
 
-    public Entrainement findEntrainementByNutrition(Nutrition nutrition) {
-        return entrainementRepository.findByNutrition(nutrition);
-    }
-   /* public Entrainement suggestEntrainement(Utilisateur utilisateur) {
+
+    public List <Entrainement> suggestEntrainement(Utilisateur utilisateur) {
         //this method suggest to the user the suitable workout according to his IMC
         //We consider that by default each workout has a Nutrition(By ForeingKey of it ) so suggestEntrainement implique suggestion of Nutrition
         double weight =utilisateur.getPoids();
         double height = utilisateur.getTaille();
         double imc = weight / (height * height);
        return entrainementRepository.findByIMCRange(imc);
-    }*/
+    }
 
 
 }

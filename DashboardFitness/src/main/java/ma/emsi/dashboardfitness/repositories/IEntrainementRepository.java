@@ -6,10 +6,12 @@ import ma.emsi.dashboardfitness.entities.Nutrition;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Query;
 
+import java.util.List;
+import java.util.Optional;
+
 public interface IEntrainementRepository extends JpaRepository<Entrainement, Long> {
-    Entrainement findByNom(String name);
-    Entrainement findByDuree(long duree);
-    Entrainement findByNutrition (Nutrition nutrition);
+    List<Entrainement> findByNomContaining(String name);
+    List<Entrainement> findByDuree(long duree);
     @Query("SELECT e FROM Entrainement e WHERE e.imcMin <= :imc AND e.imcMax >= :imc")
-    Entrainement findByIMCRange(double imc);
+    List<Entrainement> findByIMCRange(double imc);
 }
