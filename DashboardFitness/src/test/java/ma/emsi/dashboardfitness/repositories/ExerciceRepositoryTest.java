@@ -43,7 +43,7 @@ public class ExerciceRepositoryTest {
                 .build();
         entrainementRepository.save(entrainement);
         exerciceRepository.save(Exercice.builder()
-                .nom("Exercice de test")
+                .nom("description de l'exercice")
                 .duree("20")
                 .nombreDeRep(10)
                 .image(new byte[]{9, 10, 11, 12})
@@ -52,11 +52,11 @@ public class ExerciceRepositoryTest {
                 .build()
         );
         exerciceRepository.save(Exercice.builder()
-                .nom("Nom de l'exercice")
-                .duree("10")
-                .nombreDeRep(4)
+                .nom("Exercice de test")
+                .duree("20")
+                .nombreDeRep(10)
                 .image(new byte[]{9, 10, 11, 12})
-                .description("Description de l'exercice")
+                .description("Nom de l'exercice")
                 .entrainement(entrainement)
                 .build()
         );
@@ -77,7 +77,7 @@ public class ExerciceRepositoryTest {
         String keyword = "exercice";
         List<Exercice> expectedExercices = List.of(
                 Exercice.builder()
-                        .nom("Exercice de test")
+                        .nom("description de l'exercice")
                         .duree("20")
                         .nombreDeRep(10)
                         .image(new byte[]{9, 10, 11, 12})
@@ -122,9 +122,9 @@ public class ExerciceRepositoryTest {
 
         );
         List<Exercice> result = exerciceRepository.findByNomContainingIgnoreCase(keyword);
-        //Assertions.assertThat(result).usingRecursiveFieldByFieldElementComparatorIgnoringFields("idExercice").isEqualTo(expectedExercices);
+        //Assertions.assertThat(result).usingElementComparatorIgnoringFields ("idExercice", "idEntrainement", "idNutrition").isEqualTo(expectedExercices);
         Assertions.assertThat(result.size()).isEqualTo(expectedExercices.size());
-        //Assertions.assertThat(result.size()).isEqualTo(2);
+        Assertions.assertThat(result.size()).isEqualTo(2);
         Assertions.assertThat(result).isNotNull();
 
     }
