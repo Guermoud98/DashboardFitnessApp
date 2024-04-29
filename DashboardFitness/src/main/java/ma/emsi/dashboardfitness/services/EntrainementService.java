@@ -23,7 +23,7 @@ public class EntrainementService {
     }
 
    public List<Entrainement> findEntrainementByName(String name) {
-        List<Entrainement>result=entrainementRepository.findByNomContaining(name);
+        List<Entrainement>result=entrainementRepository.findByNomContainingIgnoreCase(name);
         return result;
     }
 
