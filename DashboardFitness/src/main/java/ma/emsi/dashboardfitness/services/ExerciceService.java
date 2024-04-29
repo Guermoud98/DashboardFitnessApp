@@ -49,4 +49,7 @@ public class ExerciceService {
     public Exercice getExerciceId(Long id) {
         return exerciceRepository.findById(id).orElse(null);
     }
+    public List<Exercice> chercherExercicesParNom(String nom) {
+        return exerciceRepository.findByNomContainingIgnoreCase(nom);
+    }
 }
