@@ -13,6 +13,8 @@ import org.springframework.boot.test.autoconfigure.orm.jpa.DataJpaTest;
 
 import java.util.List;
 
+import static org.assertj.core.api.Assertions.assertThat;
+
 @DataJpaTest
 @AutoConfigureTestDatabase(connection = EmbeddedDatabaseConnection.H2)
 public class ExerciceRepositoryTest {
@@ -123,9 +125,48 @@ public class ExerciceRepositoryTest {
         );
         List<Exercice> result = exerciceRepository.findByNomContainingIgnoreCase(keyword);
         //Assertions.assertThat(result).usingElementComparatorIgnoringFields ("idExercice", "idEntrainement", "idNutrition").isEqualTo(expectedExercices);
-        Assertions.assertThat(result.size()).isEqualTo(expectedExercices.size());
-        Assertions.assertThat(result.size()).isEqualTo(2);
-        Assertions.assertThat(result).isNotNull();
+        assertThat(result.size()).isEqualTo(expectedExercices.size());
+        assertThat(result.size()).isEqualTo(2);
+        assertThat(result).isNotNull();
+        for (int i = 0; i < result.size(); i++) {
+            Exercice expectedResult = expectedExercices.get(i);
+            Exercice actualResult = result.get(i);
+
+            // Verify the 'nom' field
+            assertThat(actualResult.getNom()).isEqualTo(expectedResult.getNom());
+
+            // Verify the 'duree' field
+            assertThat(actualResult.getDuree()).isEqualTo(expectedResult.getDuree());
+
+            // Verify the 'nombreDeRep' field
+            assertThat(actualResult.getNombreDeRep()).isEqualTo(expectedResult.getNombreDeRep());
+
+            // Verify the 'image' field
+            assertThat(actualResult.getImage()).isEqualTo(expectedResult.getImage());
+
+            // Verify the 'description' field
+            assertThat(actualResult.getDescription()).isEqualTo(expectedResult.getDescription());
+
+            // Verify the 'entrainement' field
+            Entrainement expectedEntrainement = expectedResult.getEntrainement();
+            Entrainement actualEntrainement = actualResult.getEntrainement();
+
+            assertThat(actualEntrainement.getNom()).isEqualTo(expectedEntrainement.getNom());
+            assertThat(actualEntrainement.getDuree()).isEqualTo(expectedEntrainement.getDuree());
+            assertThat(actualEntrainement.getImcMax()).isEqualTo(expectedEntrainement.getImcMax());
+            assertThat(actualEntrainement.getImcMin()).isEqualTo(expectedEntrainement.getImcMin());
+            assertThat(actualEntrainement.getDescription()).isEqualTo(expectedEntrainement.getDescription());
+
+            // Verify the 'nutrition' field within 'entrainement'
+            Nutrition expectedNutrition = expectedEntrainement.getNutrition();
+            Nutrition actualNutrition = actualEntrainement.getNutrition();
+
+            assertThat(actualNutrition.getNomNutrition()).isEqualTo(expectedNutrition.getNomNutrition());
+            assertThat(actualNutrition.getType()).isEqualTo(expectedNutrition.getType());
+            assertThat(actualNutrition.getGraisse()).isEqualTo(expectedNutrition.getGraisse());
+            assertThat(actualNutrition.getCalorie()).isEqualTo(expectedNutrition.getCalorie());
+            assertThat(actualNutrition.getProteine()).isEqualTo(expectedNutrition.getProteine());
+        }
 
     }
 
