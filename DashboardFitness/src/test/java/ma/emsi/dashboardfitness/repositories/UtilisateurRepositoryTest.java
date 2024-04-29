@@ -1,5 +1,6 @@
 package ma.emsi.dashboardfitness.repositories;
 import ma.emsi.dashboardfitness.entities.Utilisateur;
+import org.assertj.core.api.Assertions;
 import org.assertj.core.api.AssertionsForClassTypes;
 import org.junit.Assert;
 import org.junit.jupiter.api.BeforeEach;
@@ -28,8 +29,18 @@ public class UtilisateurRepositoryTest {
  public void Should_Find_Utilisateur_ByEmail() {
 
      String givenEmail = "leila@example.com";
+     Utilisateur expected= Utilisateur.builder()
+             .idUtilisateur(2L)
+             .prenom("ettaleby")
+             .nom("leila")
+             .email("leila@example.com")
+             .password("Leila123!")
+             .poids(63)
+             .taille(162)
+             .build();
      Utilisateur result = utilisateurRepository.findByEmail(givenEmail);
-     AssertionsForClassTypes.assertThat(result).isNotNull();
+     Assertions.assertThat(result).isNotNull();
+     Assertions.assertThat(result).isEqualTo(expected);
 
  }
     @Test
@@ -37,7 +48,8 @@ public class UtilisateurRepositoryTest {
 
         String givenEmail = "xxx@xxxxx.com";
         Utilisateur result = utilisateurRepository.findByEmail(givenEmail);
-        AssertionsForClassTypes.assertThat(result).isNull();
+        Assertions.assertThat(result).isNull();
+
 
     }
 
