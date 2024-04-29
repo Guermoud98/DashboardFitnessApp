@@ -103,7 +103,7 @@ public class EntrainementRepositoryTest {
                 .build()
         );
 
-        List<Entrainement> result =entrainementRepository.findByNomContaining(keyword);
+        List<Entrainement> result =entrainementRepository.findByNomContainingIgnoreCase(keyword);
         Assertions.assertThat(result).isNotNull();
         Assertions.assertThat(result).isEqualTo(expected);
         Assertions.assertThat(result.size()).isEqualTo(expected.size());
