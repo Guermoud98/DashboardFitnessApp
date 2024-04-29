@@ -20,7 +20,7 @@ public class Utilisateur {
 
     private String password;
     private int poids;
-    private int taille;
+    private double taille;
 
     @ManyToOne
     @JoinColumn(name = "idEntrainement")

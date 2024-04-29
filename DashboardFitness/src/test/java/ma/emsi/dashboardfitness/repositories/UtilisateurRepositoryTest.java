@@ -20,9 +20,9 @@ public class UtilisateurRepositoryTest {
     private IUtilisateurRepository utilisateurRepository;
  @BeforeEach
     public void setUp() {
-     utilisateurRepository.save(Utilisateur.builder().prenom("ettaleby").nom("neha").email("neha@example.com").password("Neha123!").poids(63).taille(162).build());
-     utilisateurRepository.save(Utilisateur.builder().prenom("ettaleby").nom("leila").email("leila@example.com").password("Leila123!").poids(63).taille(162).build());
-     utilisateurRepository.save(Utilisateur.builder().prenom("ettaleby").nom("houda").email("houda@example.com").password("Houda123!").poids(63).taille(162).build());
+     utilisateurRepository.save(Utilisateur.builder().prenom("ettaleby").nom("neha").email("neha@example.com").password("Neha123!").poids(63).taille(1.62).build());
+     utilisateurRepository.save(Utilisateur.builder().prenom("ettaleby").nom("leila").email("leila@example.com").password("Leila123!").poids(63).taille(1.62).build());
+     utilisateurRepository.save(Utilisateur.builder().prenom("ettaleby").nom("houda").email("houda@example.com").password("Houda123!").poids(63).taille(1.62).build());
 
  }
  @Test
@@ -36,7 +36,7 @@ public class UtilisateurRepositoryTest {
              .email("leila@example.com")
              .password("Leila123!")
              .poids(63)
-             .taille(162)
+             .taille(1.62)
              .build();
      Utilisateur result = utilisateurRepository.findByEmail(givenEmail);
      Assertions.assertThat(result).isNotNull();
