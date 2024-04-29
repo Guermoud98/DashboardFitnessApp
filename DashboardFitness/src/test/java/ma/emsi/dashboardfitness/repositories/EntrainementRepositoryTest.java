@@ -1,6 +1,7 @@
 package ma.emsi.dashboardfitness.repositories;
 
 import ma.emsi.dashboardfitness.entities.Entrainement;
+import ma.emsi.dashboardfitness.entities.Nutrition;
 import ma.emsi.dashboardfitness.entities.Utilisateur;
 import org.assertj.core.api.Assertions;
 import org.assertj.core.api.AssertionsForClassTypes;
@@ -19,32 +20,47 @@ import static org.junit.jupiter.api.Assertions.assertNotNull;
 @ActiveProfiles("test")
 @DataJpaTest
 @AutoConfigureTestDatabase(connection = EmbeddedDatabaseConnection.H2)
+
 public class EntrainementRepositoryTest {
     @Autowired
     private IEntrainementRepository entrainementRepository;
+    @Autowired
+    private INutritionRepository nutritionRepository;
     @BeforeEach
     public void setUp() {
-        entrainementRepository.save(Entrainement.builder()
-                .nom("WorkoutForAss")
-                .duree(50)
-                .imcMax(150)
-                .imcMin(60)
-                .description("for get a big ass ")
-                .build());
+
+        Nutrition n1=Nutrition.builder()
+                .nomNutrition("Glute-Building Meal")
+                .type("Pre-workout")
+                .graisse(10) // in grams
+                .calorie(400) // in calories
+                .proteine(25) // in grams
+                .build();
+        Nutrition n2=Nutrition.builder()
+                .nomNutrition("Glute-Strengthening Meal")
+                .type("Post-workout")
+                .graisse(8) // in grams
+                .calorie(350) // in calories
+                .proteine(20) // in grams
+                .build();
+        nutritionRepository.save(n1);
+        nutritionRepository.save(n2);
 
         entrainementRepository.save(Entrainement.builder()
-                .nom("WorkoutForGlutes")
-                .duree(30)
-                .imcMax(120)
-                .imcMin(70)
+                .nom("WorkoutForStrongGlutes")
+                .duree(40)
+                .imcMax(60)
+                .imcMin(20)
                 .description("for get a strong glutes ")
+                .nutrition(n1)//link each workout with his meal
                 .build());
         entrainementRepository.save(Entrainement.builder()
-                .nom("WorkoutForGlutes")
+                .nom("WorkoutForWeakGlutes")
                 .duree(30)
                 .imcMax(120)
                 .imcMin(70)
                 .description("for get a weak  glutes ")
+                .nutrition(n2)
                 .build());
 
     }
@@ -53,26 +69,61 @@ public class EntrainementRepositoryTest {
         String keyword = "glutes";
         List<Entrainement> expected= List.of(
                 Entrainement.builder()
-                        .nom("WorkoutForGlutes")
-                        .duree(30)
-                        .imcMax(120)
-                        .imcMin(70)
-                        .description("for get a weak  glutes ")
+                        .nom("WorkoutForStrongGlutes")
+                        .duree(40)
+                        .imcMax(60)
+                        .imcMin(20)
+                        .description("for get a strong glutes ")
                         .build()
                 ,
         Entrainement.builder()
-                .nom("WorkoutForGlutes")
+                .nom("WorkoutForWeakGlutes")
                 .duree(30)
                 .imcMax(120)
                 .imcMin(70)
-                .description("for get a strong glutes ")
+                .description("for get a weak  glutes ")
                 .build()
         );
 
-        List<Entrainement> result =entrainementRepository.findByNom(keyword);
+        List<Entrainement> result =entrainementRepository.findByNomContaining(keyword);
        AssertionsForClassTypes.assertThat(result).isNotNull();
     }
+    @Test
+    public void Should_Find_Entrainement_by_Duree() {
+        long givenDuree=30;
+        List<Entrainement> expected= List.of( Entrainement.builder()
+                .nom("WorkoutForWeakGlutes")
+                .duree(30)
+                .imcMax(120)
+                .imcMin(70)
+                .description("for get a weak  glutes ")
+                .build()
+        );
+        List<Entrainement> result =entrainementRepository.findByDuree(givenDuree);
+        AssertionsForClassTypes.assertThat(result).isNotNull();
+    }
 
+@Test
+    public void Should_Find_Entrainement_by_Imc() {
+        double imc=90;
+         List<Entrainement> expected= List.of( Entrainement.builder()
+            .nom("WorkoutForWeakGlutes")
+            .duree(30)
+            .imcMax(120)
+            .imcMin(70)
+            .description("for get a weak  glutes ")
+            .build()
+         );
+
+        List<Entrainement>result=entrainementRepository.findByIMCRange(imc);
+        AssertionsForClassTypes.assertThat(result).isNotNull();
+      for (Entrainement entrainement : result) {
+        AssertionsForClassTypes.assertThat(entrainement.getImcMin()).isLessThanOrEqualTo(imc);
+        AssertionsForClassTypes.assertThat(entrainement.getImcMax()).isGreaterThanOrEqualTo(imc);
+        System.out.println(entrainement);
+      }
+
+}
 
 
 }
