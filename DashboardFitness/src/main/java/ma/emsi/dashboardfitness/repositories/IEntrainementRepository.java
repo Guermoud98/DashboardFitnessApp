@@ -5,10 +5,11 @@ import ma.emsi.dashboardfitness.entities.Entrainement;
 import ma.emsi.dashboardfitness.entities.Nutrition;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Query;
+import org.springframework.stereotype.Repository;
 
 import java.util.List;
 import java.util.Optional;
-
+@Repository
 public interface IEntrainementRepository extends JpaRepository<Entrainement, Long> {
     List<Entrainement> findByNomContaining(String name);
     List<Entrainement> findByDuree(long duree);
