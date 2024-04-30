@@ -45,11 +45,24 @@ public class NutritionServiceTest {
          du service*/
         verify(nutritionRepository, times(1)).save(nutrition);
 
+    }
+    @Test
+    public void supprimerNutritionTest() {
+        //given
+        Nutrition expectednutrition = Nutrition.builder()
+                .nomNutrition("test")
+                .type("test")
+                .graisse(12)
+                .calorie(11)
+                .proteine(5)
+                .build();
 
-
-
-
-
+        Nutrition savedNutrition = nutritionRepository.save(expectednutrition);
+        //la nutrition qu'on veut supprimer
+        nutritionService.supprimerNutrition(savedNutrition);
+        //assertEquals(nutritionToDelete,expectednutrition);
+        // Vérifier que la méthode delete a été appelée avec la nutrition à supprimer
+        verify(nutritionRepository, times(1)).delete(savedNutrition);
     }
 
 
