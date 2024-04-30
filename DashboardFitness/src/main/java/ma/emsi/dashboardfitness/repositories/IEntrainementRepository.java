@@ -11,7 +11,7 @@ import java.util.List;
 import java.util.Optional;
 @Repository
 public interface IEntrainementRepository extends JpaRepository<Entrainement, Long> {
-    List<Entrainement> findByNomContaining(String name);
+    List<Entrainement> findByNomContainingIgnoreCase(String name);
     List<Entrainement> findByDuree(long duree);
     @Query("SELECT e FROM Entrainement e WHERE e.imcMin <= :imc AND e.imcMax >= :imc")
     List<Entrainement> findByIMCRange(double imc);
