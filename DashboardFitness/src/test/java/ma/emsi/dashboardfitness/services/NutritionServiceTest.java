@@ -11,9 +11,7 @@ import org.mockito.junit.jupiter.MockitoExtension;
 import org.springframework.boot.test.autoconfigure.orm.jpa.DataJpaTest;
 
 
-
-import static org.junit.jupiter.api.Assertions.assertNotNull;
-import static org.junit.jupiter.api.Assertions.assertNull;
+import static org.junit.jupiter.api.Assertions.*;
 import static org.mockito.BDDMockito.given;
 import static org.mockito.Mockito.*;
 
@@ -31,13 +29,17 @@ public class NutritionServiceTest {
     public void ajouterNutritionTest() {
         //given
         Nutrition nutrition = Nutrition.builder()
-                .idNutrition(null).nomNutrition("test")
-                .type("test").graisse(12).calorie(11).proteine(5).build();
+                .nomNutrition("test")
+                .type("test")
+                .graisse(12)
+                .calorie(11)
+                .proteine(5)
+                .build();
         // Cette ligne définit un comportement simulé pour la méthode save du repository
         given(nutritionRepository.save(nutrition)).willReturn(nutrition);
         // La méthode qu'on veut tester
         Nutrition savedNutrition = nutritionService.ajouterNutrition(nutrition);
-        assertNotNull(savedNutrition);
+        assertEquals(nutrition,savedNutrition);
         /*La ligne verify vérifie si le comportement simulé qu'on a défini avec given
          correspond à ce qui se passe réellement lorsqu'on appelle la méthode ajouterNutrition
          du service*/
