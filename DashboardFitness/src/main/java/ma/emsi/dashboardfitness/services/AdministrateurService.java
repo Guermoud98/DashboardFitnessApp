@@ -5,6 +5,7 @@ import ma.emsi.dashboardfitness.entities.Administrateur;
 import ma.emsi.dashboardfitness.entities.Nutrition;
 import ma.emsi.dashboardfitness.repositories.IAdministrateurRepository;
 import ma.emsi.dashboardfitness.repositories.INutritionRepository;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
@@ -12,10 +13,11 @@ import java.util.List;
 @Service
 public class AdministrateurService {
     private IAdministrateurRepository administrateurRepository;
-    private INutritionRepository nutritionRepository;
+    private NutritionService nutritionService;
     //couplage faible
-    public AdministrateurService(IAdministrateurRepository administrateurRepository) {
+    public AdministrateurService(IAdministrateurRepository administrateurRepository,NutritionService nutritionService) {
         this.administrateurRepository = administrateurRepository;
+        this.nutritionService = nutritionService;
     }
     /******************************Admin login*************************************/
     public Administrateur AdminLogin(String username, String password) {
@@ -27,8 +29,12 @@ public class AdministrateurService {
         return null;
     }
     /******************************Nutrition*************************************/
-    public List<Nutrition> afficherNutritions() {
-        return nutritionRepository.findAll();
+    public Nutrition createNutrition(Nutrition nutrition) {
+        return nutritionService.ajouterNutrition(nutrition);
     }
+    public List<Nutrition> afficherNutritions() {
+        return nutritionService.afficherNutritions();
+    }
+
 
 }

@@ -3,9 +3,11 @@ package ma.emsi.dashboardfitness.services;
 import ma.emsi.dashboardfitness.entities.Exercice;
 import ma.emsi.dashboardfitness.entities.Nutrition;
 import ma.emsi.dashboardfitness.repositories.IExerciceRepository;
+import org.springframework.stereotype.Service;
 
 import java.util.List;
 
+@Service
 public class ExerciceService {
     private IExerciceRepository exerciceRepository;
 

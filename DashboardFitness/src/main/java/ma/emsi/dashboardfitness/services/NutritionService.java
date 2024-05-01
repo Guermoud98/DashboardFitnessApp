@@ -2,11 +2,13 @@ package ma.emsi.dashboardfitness.services;
 
 import ma.emsi.dashboardfitness.entities.Nutrition;
 import ma.emsi.dashboardfitness.repositories.INutritionRepository;
+import org.springframework.stereotype.Service;
 
 import java.util.List;
 
 import static org.hibernate.internal.util.collections.ArrayHelper.forEach;
 
+@Service
 public class NutritionService {
     private INutritionRepository nutritionRepository;
     // couplage faible
