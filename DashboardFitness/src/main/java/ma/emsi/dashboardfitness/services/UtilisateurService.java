@@ -3,6 +3,7 @@ package ma.emsi.dashboardfitness.services;
 import ma.emsi.dashboardfitness.entities.Utilisateur;
 import ma.emsi.dashboardfitness.repositories.IUtilisateurRepository;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.crypto.bcrypt.BCrypt;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
@@ -36,12 +37,12 @@ public class UtilisateurService {
 
 
     public Utilisateur Login(String email, String password) {
-        // Create BCryptPasswordEncoder instance locally
-        PasswordEncoder passwordEncoder = new BCryptPasswordEncoder();
         Utilisateur utilisateur = utilisateurRepository.findByEmail(email);
-        if (utilisateur != null && passwordEncoder.matches(password, utilisateur.getPassword())) {
-            return utilisateur;
+
+        if (utilisateur != null && new BCryptPasswordEncoder().matches(password, utilisateur.getPassword())) {
+          return utilisateur;
         }
+
         return null;
     }
 
@@ -53,16 +54,7 @@ public class UtilisateurService {
         if (!isValidPassword(utilisateur.getPassword())) {
             throw new IllegalArgumentException("Password invalid");
         }
-        // Create BCryptPasswordEncoder instance locally
-        PasswordEncoder passwordEncoder = new BCryptPasswordEncoder();
-
-        // Encode the password
-        String encodedPassword = passwordEncoder.encode(utilisateur.getPassword());
-
-        // Set the encoded password back to the utilisateur object
-        utilisateur.setPassword(encodedPassword);
-
-        return utilisateurRepository.save(utilisateur);
+        return utilisateurRepository.saveUtilisateur(utilisateur);
     }
 
 
