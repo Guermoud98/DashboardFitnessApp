@@ -15,12 +15,14 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 @SpringBootApplication
 public class DashboardFitnessApplication {
 
+
+ @Autowired
+ UtilisateurService utilisateurService;
+
     public static void main(String[] args) {
 
         SpringApplication.run(DashboardFitnessApplication.class, args);
     }
-
-
 
 
 }
