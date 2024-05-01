@@ -23,6 +23,7 @@ public class UtilisateurServiceTest {
 
     @BeforeEach
     public void setUp() {
+        // à modifier en utilisant saveUtilisateur instead
         utilisateurRepository.save(Utilisateur.builder().prenom("ettaleby").nom("neha").email("neha@example.com").password("Neha123!").poids(63).taille(162).build());
         utilisateurRepository.save(Utilisateur.builder().prenom("ettaleby").nom("leila").email("leila@example.com").password("Leila123!").poids(63).taille(162).build());
         utilisateurRepository.save(Utilisateur.builder().prenom("ettaleby").nom("houda").email("houda@example.com").password("Houda123!").poids(63).taille(162).build());
