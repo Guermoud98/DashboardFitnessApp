@@ -23,4 +23,8 @@ public class AdministrateurRestController {
     public void deleteNutritionsbyId(@PathVariable Long idNutrition) {
         administrateurService.deleteNutritionById( idNutrition);
     }
+    @GetMapping(path = "/afficherNutritionsById/{idNutrition}" )
+    public Nutrition getNutritionById(@PathVariable Long idNutrition) {
+        return administrateurService.afficherNutritionById(idNutrition);
+    }
 }

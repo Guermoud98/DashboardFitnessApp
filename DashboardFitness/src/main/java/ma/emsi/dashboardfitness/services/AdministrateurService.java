@@ -38,6 +38,9 @@ public class AdministrateurService {
     public void deleteNutritionById(Long id) {
         nutritionService.supprimerNutritionById(id);
     }
+    public Nutrition afficherNutritionById(Long id) {
+        return nutritionService.getNutritionById(id);
+    }
 
 
 }
