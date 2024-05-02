@@ -9,10 +9,17 @@ import org.springframework.stereotype.Repository;
 
 import java.util.List;
 import java.util.Optional;
+
 @Repository
 public interface IEntrainementRepository extends JpaRepository<Entrainement, Long> {
+
+    Optional<Entrainement> findByIdEntrainement(Long id);
+
     List<Entrainement> findByNomContainingIgnoreCase(String name);
+
     List<Entrainement> findByDuree(long duree);
+
     @Query("SELECT e FROM Entrainement e WHERE e.imcMin <= :imc AND e.imcMax >= :imc")
     List<Entrainement> findByIMCRange(double imc);
+    List<Entrainement>findByNutrition(Nutrition nutrition);
 }
