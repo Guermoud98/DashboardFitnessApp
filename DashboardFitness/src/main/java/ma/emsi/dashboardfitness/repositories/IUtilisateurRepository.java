@@ -4,17 +4,35 @@ package ma.emsi.dashboardfitness.repositories;
 import ma.emsi.dashboardfitness.entities.Utilisateur;
 import ma.emsi.dashboardfitness.services.UtilisateurService;
 import org.springframework.data.jpa.repository.JpaRepository;
+import org.springframework.data.jpa.repository.Modifying;
+import org.springframework.data.jpa.repository.Query;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Repository;
 
+import java.util.List;
+import java.util.Optional;
+
 @Repository
 
 public interface IUtilisateurRepository extends JpaRepository<Utilisateur, Long> {
-    Utilisateur findByEmail(String email);
+    Optional<Utilisateur> findByEmail(String email);
 
-    //cette methode est utilisé pour resoudre le probleme de la methode par defaut save car cette derniere elle sauvegarde le mot de passe sans  l'encoder
-    default   Utilisateur saveUtilisateur(Utilisateur utilisateur) {
+    Optional<Utilisateur> findByIdUtilisateur(Long idUtilisateur);
+
+    List<Utilisateur> findByNomContainingIgnoreCase(String nom);
+
+    List<Utilisateur> findByPrenomContainingIgnoreCase(String prenom);
+
+    List<Utilisateur> findByPoids(int poids);
+
+    List<Utilisateur> findByTaille(long taille);
+
+    Optional<Utilisateur> deleteByIdUtilisateur(Long idUtilisateur);
+
+    //cette methode est utilisé pour resoudre le probleme de la methode
+    // par defaut save car cette derniere elle sauvegarde le mot de passe sans  l'encoder
+    default Utilisateur saveUtilisateur(Utilisateur utilisateur) {
         // Create BCryptPasswordEncoder instance locally
         PasswordEncoder passwordEncoder = new BCryptPasswordEncoder();
 
@@ -22,4 +40,5 @@ public interface IUtilisateurRepository extends JpaRepository<Utilisateur, Long>
 
         return save(utilisateur);
     }
+
 }

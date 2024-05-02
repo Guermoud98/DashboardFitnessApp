@@ -3,9 +3,7 @@ package ma.emsi.dashboardfitness.services;
 import ma.emsi.dashboardfitness.entities.Entrainement;
 import ma.emsi.dashboardfitness.entities.Utilisateur;
 import ma.emsi.dashboardfitness.repositories.IEntrainementRepository;
-import org.assertj.core.api.Assertions;
 import org.junit.jupiter.api.Test;
-import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.extension.ExtendWith;
 import org.mockito.InjectMocks;
 import org.mockito.Mock;
@@ -16,7 +14,6 @@ import java.util.List;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertNotNull;
-import static org.mockito.BDDMockito.given;
 import static org.mockito.Mockito.*;
 
 @ExtendWith(MockitoExtension.class)
@@ -45,7 +42,7 @@ class EntrainementServiceTest {
         when(entrainementRepository.findByNomContainingIgnoreCase(name)).thenReturn(entrainements);
 
         // When
-        List<Entrainement> savedEntrainements = entrainementService.findEntrainementByName(name);
+        List<Entrainement> savedEntrainements = entrainementService.getEntrainementByNom(name);
 
         // Then
         assertNotNull(savedEntrainements);
@@ -82,7 +79,7 @@ class EntrainementServiceTest {
         when(entrainementRepository.findByDuree(duree)).thenReturn(entrainements);
 
         // When
-        List<Entrainement> savedEntrainements = entrainementService.findEntrainementByDuree(duree);
+        List<Entrainement> savedEntrainements = entrainementService.getEntrainementByDuree(duree);
 
         // Then
         assertNotNull(savedEntrainements);
@@ -102,7 +99,7 @@ class EntrainementServiceTest {
                 .taille(1.75)
                 .build();
 
-        double imc = (double) utilisateur.getPoids() / (utilisateur.getTaille() * utilisateur.getTaille());
+        double imc =utilisateur.getPoids() / (utilisateur.getTaille() * utilisateur.getTaille());
 
         Entrainement e1 = Entrainement.builder()
                 .nom("Workout1")
@@ -127,7 +124,7 @@ class EntrainementServiceTest {
         when(entrainementRepository.findByIMCRange(imc)).thenReturn(entrainements);
 
         // When
-        List<Entrainement> suggestedEntrainements = entrainementService.suggestEntrainement(utilisateur);
+        List<Entrainement> suggestedEntrainements = entrainementService.suggestEntrainementToUserByIMC(utilisateur.getPoids(),utilisateur.getTaille());
 
         // Then
         assertNotNull(suggestedEntrainements);
