@@ -4,7 +4,6 @@ import ma.emsi.dashboardfitness.entities.Entrainement;
 import ma.emsi.dashboardfitness.entities.Utilisateur;
 import ma.emsi.dashboardfitness.repositories.IUtilisateurRepository;
 import org.springframework.stereotype.Service;
-import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 
 import java.util.List;
 
@@ -35,7 +34,7 @@ public class UtilisateurService {
     public Utilisateur Login(String email, String password) {
         Utilisateur utilisateur = utilisateurRepository.findByEmail(email).orElse(null);
 
-        if (utilisateur != null && new BCryptPasswordEncoder().matches(password, utilisateur.getPassword())) {
+        if (utilisateur != null && password.equals(utilisateur.getPassword()) ) {
             return utilisateur;
         }
 
@@ -51,7 +50,7 @@ public class UtilisateurService {
         if (!isValidPassword(utilisateur.getPassword())) {
             throw new IllegalArgumentException("Password invalid");
         }
-        return utilisateurRepository.saveUtilisateur(utilisateur);
+        return utilisateurRepository.save(utilisateur);
     }
 
     /******************************  Update  ********************************/
@@ -69,7 +68,7 @@ public class UtilisateurService {
             existingUser.setPassword(utilisateur.getPassword() != null ? utilisateur.getPassword() : existingUser.getPassword());
 
         }
-        return utilisateurRepository.saveUtilisateur(existingUser);
+        return utilisateurRepository.save(existingUser);
     }
     /*******Affichage d'entrainement *******/
     public List<Entrainement> getRecommendedEntrainementsForUser(Utilisateur utilisateur)
