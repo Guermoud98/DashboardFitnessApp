@@ -59,13 +59,13 @@ public class UtilisateurService {
     //here I used utilisateur as param because the method login returns user connected
     //Recommended to use this method in UserController not admin
     public Utilisateur UpdateUtilisateur(Utilisateur utilisateur) {
-        Utilisateur existingUser = utilisateurRepository.findByIdUtilisateur(utilisateur.getIdUtilisateur()).orElse(null);
+        Utilisateur existingUser = utilisateurRepository.findByEmail(utilisateur.getEmail()).orElse(null);
         if (existingUser != null) {
             existingUser.setNom(utilisateur.getNom() != null ? utilisateur.getNom() : existingUser.getNom());
             existingUser.setPrenom(utilisateur.getPrenom() != null ? utilisateur.getPrenom() : existingUser.getPrenom());
             existingUser.setPoids(utilisateur.getPoids() != 0 ? utilisateur.getPoids() : existingUser.getPoids());
             existingUser.setTaille(utilisateur.getTaille() != 0 ? utilisateur.getTaille() : existingUser.getTaille());
-            existingUser.setEmail(utilisateur.getEmail() != null && !utilisateur.getEmail().equals(existingUser.getEmail()) ? utilisateur.getEmail() : existingUser.getEmail());
+           // existingUser.setEmail(utilisateur.getEmail() != null && !utilisateur.getEmail().equals(existingUser.getEmail()) ? utilisateur.getEmail() : existingUser.getEmail());
             existingUser.setPassword(utilisateur.getPassword() != null ? utilisateur.getPassword() : existingUser.getPassword());
 
         }
