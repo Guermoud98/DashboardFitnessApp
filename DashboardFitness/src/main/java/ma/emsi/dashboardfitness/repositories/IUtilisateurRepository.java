@@ -4,9 +4,6 @@ package ma.emsi.dashboardfitness.repositories;
 import ma.emsi.dashboardfitness.entities.Utilisateur;
 import org.springframework.data.jpa.repository.JpaRepository;
 
-import org.springframework.data.jpa.repository.Modifying;
-import org.springframework.data.jpa.repository.Query;
-
 import org.springframework.stereotype.Repository;
 
 import java.util.List;
@@ -29,14 +26,5 @@ public interface IUtilisateurRepository extends JpaRepository<Utilisateur, Long>
 
     Optional<Utilisateur> deleteByIdUtilisateur(Long idUtilisateur);
 
-    /*//cette methode est utilisé pour resoudre le probleme de la methode
-    // par defaut save car cette derniere elle sauvegarde le mot de passe sans  l'encoder
-   /* default Utilisateur saveUtilisateur(Utilisateur utilisateur) {
-        // Create BCryptPasswordEncoder instance locally
-        PasswordEncoder passwordEncoder = new BCryptPasswordEncoder();
-
-        utilisateur.setPassword(passwordEncoder.encode(utilisateur.getPassword()));
-
-        return save(utilisateur);
 
 }

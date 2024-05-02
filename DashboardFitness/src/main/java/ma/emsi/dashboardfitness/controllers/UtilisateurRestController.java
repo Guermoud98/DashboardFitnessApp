@@ -12,8 +12,7 @@ import java.util.List;
 @RestController
 @RequestMapping("/api/Utilisateurs")
 public class UtilisateurRestController {
-
-    private UtilisateurService utilisateurService;
+    private final UtilisateurService utilisateurService;
 
     public UtilisateurRestController(UtilisateurService utilisateurService) {
         this.utilisateurService = utilisateurService;
@@ -36,15 +35,11 @@ public class UtilisateurRestController {
             return ResponseEntity.status(HttpStatus.NOT_FOUND).build();
         }
         return ResponseEntity.ok(existingUser);
-
-
     }
-
-    @GetMapping(path = "/ALL")
+    @GetMapping(path = "/AllUsers")
     public ResponseEntity<List<Utilisateur>> getAll() {
         return ResponseEntity.ok(utilisateurService.getAllUtilisateurs());
     }
-
     @GetMapping(path = "/GetSuggestedEntrainement")
     public ResponseEntity<List<Entrainement>> getWorkoutUtilisateur(@RequestParam String email, @RequestParam String password) {
         Utilisateur existingUser = utilisateurService.Login(email, password);
@@ -55,9 +50,7 @@ public class UtilisateurRestController {
         // Indique que la requête a été traitée avec succès.
         // Le corps de la réponse contient les données spécifiées (dans ce cas, les détails de l'utilisateur).
         return ResponseEntity.ok(utilisateurService.getRecommendedEntrainementsForUser(existingUser));
-
     }
-
     @GetMapping(path = "/GetAllEntrainements")
     public ResponseEntity<List<Entrainement>> getAllEntrainement(@RequestParam String email, @RequestParam String password) {
         Utilisateur existingUser = utilisateurService.Login(email, password);
@@ -66,7 +59,6 @@ public class UtilisateurRestController {
         }
         return ResponseEntity.ok(utilisateurService.getAllEntrainementsForUser(existingUser));
     }
-
     @PutMapping(path = "/me/Profile")
     public ResponseEntity<Utilisateur> UpdateProfile(@RequestBody Utilisateur utilisateur) {
 
@@ -80,20 +72,8 @@ public class UtilisateurRestController {
 
     }
 
-    }*/
-    @GetMapping(path = "/api/Utilisateurs/getAll")
-    public ResponseEntity<List<Utilisateur>> getAllUtilisateurs() {
-        List<Utilisateur> utilisateurs = utilisateurRepository.findAll();
-        return ResponseEntity.ok(utilisateurs);
-    }
-   /*@GetMapping(path = "/api/Utilisateurs/GetSuggestedEntrainement")
-   public ResponseEntity<List<Entrainement>> getWorkoutUtilisateur(@RequestParam String email , @RequestParam String password)
-   {
-       Utilisateur existingUser=utilisateurService.Login(email,password);
-       List<Entrainement> workoutList=entrainementService.suggestEntrainementToUserByIMC(existingUser.getPoids(), existingUser.getTaille());
-       return ResponseEntity.ok(workoutList);
 
-   }*/
+
+
 
 }
-
