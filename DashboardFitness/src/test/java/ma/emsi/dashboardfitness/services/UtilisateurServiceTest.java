@@ -47,7 +47,7 @@ public class UtilisateurServiceTest {
                 .build();
 
         // Configure the mock repository to return the mock utilisateur when findByEmail is called with the email
-        when(utilisateurRepository.findByEmail(email)).thenReturn(mockUtilisateur);
+        when(utilisateurRepository.findByEmail(email).orElse(null)).thenReturn(mockUtilisateur);
 
         // When
         Utilisateur loginUtilisateur = utilisateurService.Login(email, password);
@@ -76,7 +76,7 @@ public class UtilisateurServiceTest {
                 .build();
 
         // Configure the mock repository to return the mock utilisateur when findByEmail is called with the email
-        when(utilisateurRepository.findByEmail(email)).thenReturn(mockUtilisateur);
+        when(utilisateurRepository.findByEmail(email).orElse(null)).thenReturn(mockUtilisateur);
 
         // When
         Utilisateur loginUtilisateur = utilisateurService.Login(email, password);

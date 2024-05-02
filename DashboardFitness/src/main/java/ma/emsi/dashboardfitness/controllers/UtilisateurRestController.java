@@ -2,7 +2,6 @@ package ma.emsi.dashboardfitness.controllers;
 
 import ma.emsi.dashboardfitness.entities.Entrainement;
 import ma.emsi.dashboardfitness.entities.Utilisateur;
-import ma.emsi.dashboardfitness.repositories.IEntrainementRepository;
 import ma.emsi.dashboardfitness.repositories.IUtilisateurRepository;
 import ma.emsi.dashboardfitness.services.EntrainementService;
 import ma.emsi.dashboardfitness.services.UtilisateurService;
@@ -12,19 +11,20 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
-import java.util.Optional;
 
 @RestController
 @RequestMapping("/api/Utilisateurs")
 public class UtilisateurRestController {
 
-    @Autowired
     private UtilisateurService utilisateurService;
     @Autowired
     private IUtilisateurRepository utilisateurRepository;
     @Autowired
     private EntrainementService entrainementService;
 
+    public UtilisateurRestController(UtilisateurService utilisateurService) {
+        this.utilisateurService = utilisateurService;
+    }
 
     @PostMapping(path = "/api/Utilisateurs/create")
     public ResponseEntity<Utilisateur> createUser(@RequestBody Utilisateur utilisateur) {
@@ -49,7 +49,7 @@ public class UtilisateurRestController {
    public ResponseEntity<List<Entrainement>> getWorkoutUtilisateur(@RequestParam String email , @RequestParam String password)
    {
        Utilisateur existingUser=utilisateurService.Login(email,password);
-       List<Entrainement> workoutList=entrainementService.suggestEntrainement(existingUser);
+       List<Entrainement> workoutList=entrainementService.suggestEntrainementToUserByIMC(existingUser.getPoids(), existingUser.getTaille());
 
        return ResponseEntity.ok(workoutList);
 

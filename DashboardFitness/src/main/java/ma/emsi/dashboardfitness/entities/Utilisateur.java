@@ -19,7 +19,7 @@ public class Utilisateur {
     private String email;
 
     private String password;
-    private int poids;
+    private double poids;
     private double taille;
 
     @ManyToOne
