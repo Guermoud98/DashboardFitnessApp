@@ -1,12 +1,8 @@
 package ma.emsi.dashboardfitness.controllers;
 
 import ma.emsi.dashboardfitness.entities.Entrainement;
-import ma.emsi.dashboardfitness.entities.Nutrition;
 import ma.emsi.dashboardfitness.entities.Utilisateur;
-import ma.emsi.dashboardfitness.repositories.IUtilisateurRepository;
-import ma.emsi.dashboardfitness.services.EntrainementService;
 import ma.emsi.dashboardfitness.services.UtilisateurService;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
