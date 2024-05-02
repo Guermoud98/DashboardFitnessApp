@@ -9,10 +9,12 @@ import java.util.List;
 
 @Service
 public class UtilisateurService {
-    private IUtilisateurRepository utilisateurRepository;
-    private EntrainementService entrainementService;
-    public UtilisateurService(IUtilisateurRepository utilisateurRepository) {
+    private final IUtilisateurRepository utilisateurRepository;
+    private final EntrainementService entrainementService;
+
+    public UtilisateurService(IUtilisateurRepository utilisateurRepository, EntrainementService entrainementService) {
         this.utilisateurRepository = utilisateurRepository;
+        this.entrainementService = entrainementService;
     }
 
     /************* Les methodes de validité d'email et  password*********/
@@ -29,20 +31,20 @@ public class UtilisateurService {
         String regex = "^(?=.*[a-z])(?=.*[A-Z])(?=.*\\d)(?=.*[@$!%*?&])[A-Za-z\\d@$!%*?&]{8,}$";
         return password.matches(regex);
     }
-   /** For user **/
+    /** For user **/
     /***********************   Login ************************************/
-   /* public Utilisateur Login(String email, String password) {
+    public Utilisateur Login(String email, String password) {
         Utilisateur utilisateur = utilisateurRepository.findByEmail(email).orElse(null);
 
-        if (utilisateur != null && password.equals(utilisateur.getPassword()) ) {
+        if (utilisateur != null && password.equals(utilisateur.getPassword())) {
             return utilisateur;
         }
 
         return null;
-    }*/
+    }
 
     /************************* Inscription *************************************/
-    /*public Utilisateur Register(Utilisateur utilisateur) {
+    public Utilisateur Register(Utilisateur utilisateur) {
 
         if (!isValidEmail(utilisateur.getEmail())) {
             throw new IllegalArgumentException("Email invalid");
@@ -52,16 +54,13 @@ public class UtilisateurService {
         }
         return utilisateurRepository.save(utilisateur);
     }
-*/
+
     /******************************  Update  ********************************/
     // this method update just the fields which the user choose  to update
     //here I used utilisateur as param because the method login returns user connected
     //Recommended to use this method in UserController not admin
-
     public Utilisateur UpdateUtilisateur(Utilisateur utilisateur) {
         Utilisateur existingUser = utilisateurRepository.findByEmail(utilisateur.getEmail()).orElse(null);
-   /* public Utilisateur UpdateUtilisateur(Utilisateur utilisateur) {
-        Utilisateur existingUser = utilisateurRepository.findByIdUtilisateur(utilisateur.getIdUtilisateur()).orElse(null);
 
         if (existingUser != null) {
             existingUser.setNom(utilisateur.getNom() != null ? utilisateur.getNom() : existingUser.getNom());
@@ -75,32 +74,27 @@ public class UtilisateurService {
 
         return utilisateurRepository.save(existingUser);
     }
-=======
-        return utilisateurRepository.saveUtilisateur(existingUser);
-    }*/
+
 
     /*******Affichage d'entrainement *******/
-    public List<Entrainement> getRecommendedEntrainementsForUser(Utilisateur utilisateur)
-    {
-        return entrainementService.suggestEntrainementToUserByIMC(utilisateur.getPoids(),utilisateur.getTaille());
+    public List<Entrainement> getRecommendedEntrainementsForUser(Utilisateur utilisateur) {
+        return entrainementService.suggestEntrainementToUserByIMC(utilisateur.getPoids(), utilisateur.getTaille());
     }
-    public List<Entrainement> getAllEntrainementsForUser(Utilisateur utilisateur)
-    {
+
+    public List<Entrainement> getAllEntrainementsForUser(Utilisateur utilisateur) {
         return entrainementService.getAllEntrainements();
     }
 
 
-
-
     /******* For admin **********/
     //Recommended to use this method in AdminController
-    /*public Utilisateur UpdateUtilisateurById(long id) {
+    public Utilisateur UpdateUtilisateurById(long id) {
         Utilisateur exist = utilisateurRepository.findByIdUtilisateur(id).orElse(null);
         if (exist != null) {
             return UpdateUtilisateur(exist);
         }
         return null;
-    }*/
+    }
 
 
     /************************** Delete ***************************************/
