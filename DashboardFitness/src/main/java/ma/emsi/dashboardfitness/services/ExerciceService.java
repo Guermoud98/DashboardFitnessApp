@@ -1,5 +1,6 @@
 package ma.emsi.dashboardfitness.services;
 
+import ma.emsi.dashboardfitness.entities.Entrainement;
 import ma.emsi.dashboardfitness.entities.Exercice;
 import ma.emsi.dashboardfitness.entities.Nutrition;
 import ma.emsi.dashboardfitness.repositories.IExerciceRepository;
@@ -54,4 +55,7 @@ public class ExerciceService {
     public List<Exercice> chercherExercicesParNom(String nom) {
         return exerciceRepository.findByNomContainingIgnoreCase(nom);
     }
+    //public List<Entrainement> getEntrainementsByNom(String nom) {
+
+    //}
 }

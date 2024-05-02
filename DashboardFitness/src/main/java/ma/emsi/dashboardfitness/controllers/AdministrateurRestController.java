@@ -3,9 +3,7 @@ package ma.emsi.dashboardfitness.controllers;
 import ma.emsi.dashboardfitness.entities.Nutrition;
 import ma.emsi.dashboardfitness.repositories.IAdministrateurRepository;
 import ma.emsi.dashboardfitness.services.AdministrateurService;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
@@ -15,16 +13,23 @@ public class AdministrateurRestController {
     public AdministrateurRestController(AdministrateurService administrateurService) {
         this.administrateurService = administrateurService;
     }
+    /***************************Nutritions***********************/
     @GetMapping(path = "/nutritions")
     public List<Nutrition> getNutritions() {
         return administrateurService.afficherNutritions();
     }
-    @GetMapping(path ="/deleteNutritionsbyId/{idNutrition}" )
+    @GetMapping(path ="/nutritions/deletebyId/{idNutrition}" )
     public void deleteNutritionsbyId(@PathVariable Long idNutrition) {
         administrateurService.deleteNutritionById( idNutrition);
     }
-    @GetMapping(path = "/afficherNutritionsById/{idNutrition}" )
+    @GetMapping(path = "/nutritions/afficherById/{idNutrition}" )
     public Nutrition getNutritionById(@PathVariable Long idNutrition) {
         return administrateurService.afficherNutritionById(idNutrition);
     }
+    @PutMapping(path="/nutritions/updateNutritions/{idNutrition}")
+    public void updateNutritions(@PathVariable Long idNutrition, @RequestParam Nutrition updatedNutrition) {
+        administrateurService.updateNutrition(idNutrition, updatedNutrition);
+    } //doesn't work
+    /***************************Users***********************/
+
 }
