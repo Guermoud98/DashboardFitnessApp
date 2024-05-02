@@ -64,7 +64,7 @@ public class UtilisateurService {
             existingUser.setPrenom(utilisateur.getPrenom() != null ? utilisateur.getPrenom() : existingUser.getPrenom());
             existingUser.setPoids(utilisateur.getPoids() != 0 ? utilisateur.getPoids() : existingUser.getPoids());
             existingUser.setTaille(utilisateur.getTaille() != 0 ? utilisateur.getTaille() : existingUser.getTaille());
-           // existingUser.setEmail(utilisateur.getEmail() != null && !utilisateur.getEmail().equals(existingUser.getEmail()) ? utilisateur.getEmail() : existingUser.getEmail());
+            existingUser.setEmail(utilisateur.getEmail() != null && !utilisateur.getEmail().equals(existingUser.getEmail()) ? utilisateur.getEmail() : existingUser.getEmail());
             existingUser.setPassword(utilisateur.getPassword() != null ? utilisateur.getPassword() : existingUser.getPassword());
 
         }
