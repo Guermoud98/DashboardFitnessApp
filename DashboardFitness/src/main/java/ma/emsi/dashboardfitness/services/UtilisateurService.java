@@ -5,7 +5,6 @@ import ma.emsi.dashboardfitness.entities.Utilisateur;
 import ma.emsi.dashboardfitness.repositories.IUtilisateurRepository;
 import org.springframework.stereotype.Service;
 
-
 import java.util.List;
 
 @Service
@@ -35,7 +34,7 @@ public class UtilisateurService {
    /* public Utilisateur Login(String email, String password) {
         Utilisateur utilisateur = utilisateurRepository.findByEmail(email).orElse(null);
 
-        if (utilisateur != null && new BCryptPasswordEncoder().matches(password, utilisateur.getPassword())) {
+        if (utilisateur != null && password.equals(utilisateur.getPassword()) ) {
             return utilisateur;
         }
 
@@ -51,15 +50,19 @@ public class UtilisateurService {
         if (!isValidPassword(utilisateur.getPassword())) {
             throw new IllegalArgumentException("Password invalid");
         }
-        return utilisateurRepository.saveUtilisateur(utilisateur);
+        return utilisateurRepository.save(utilisateur);
     }
 */
     /******************************  Update  ********************************/
     // this method update just the fields which the user choose  to update
     //here I used utilisateur as param because the method login returns user connected
     //Recommended to use this method in UserController not admin
+
+    public Utilisateur UpdateUtilisateur(Utilisateur utilisateur) {
+        Utilisateur existingUser = utilisateurRepository.findByEmail(utilisateur.getEmail()).orElse(null);
    /* public Utilisateur UpdateUtilisateur(Utilisateur utilisateur) {
         Utilisateur existingUser = utilisateurRepository.findByIdUtilisateur(utilisateur.getIdUtilisateur()).orElse(null);
+
         if (existingUser != null) {
             existingUser.setNom(utilisateur.getNom() != null ? utilisateur.getNom() : existingUser.getNom());
             existingUser.setPrenom(utilisateur.getPrenom() != null ? utilisateur.getPrenom() : existingUser.getPrenom());
@@ -69,8 +72,13 @@ public class UtilisateurService {
             existingUser.setPassword(utilisateur.getPassword() != null ? utilisateur.getPassword() : existingUser.getPassword());
 
         }
+
+        return utilisateurRepository.save(existingUser);
+    }
+=======
         return utilisateurRepository.saveUtilisateur(existingUser);
     }*/
+
     /*******Affichage d'entrainement *******/
     public List<Entrainement> getRecommendedEntrainementsForUser(Utilisateur utilisateur)
     {
