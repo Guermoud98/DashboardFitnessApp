@@ -17,8 +17,8 @@ public class ExerciceService {
         this.exerciceRepository = exerciceRepository;
     }
     //l'ajout d'un exercice par l'admin a la base de donnee
-    public void ajouterExercice(Exercice exercice) {
-        exerciceRepository.save(exercice);
+    public Exercice ajouterExercice(Exercice exercice) {
+       return exerciceRepository.save(exercice);
     }
     //supprimer un exercice par l'admin de la base de donnee
     public void supprimerexercice(Exercice exercice) {

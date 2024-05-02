@@ -2,6 +2,7 @@ package ma.emsi.dashboardfitness.services;
 
 
 import ma.emsi.dashboardfitness.entities.Administrateur;
+import ma.emsi.dashboardfitness.entities.Exercice;
 import ma.emsi.dashboardfitness.entities.Nutrition;
 import ma.emsi.dashboardfitness.repositories.IAdministrateurRepository;
 import ma.emsi.dashboardfitness.repositories.INutritionRepository;
@@ -14,9 +15,11 @@ import java.util.List;
 public class AdministrateurService {
     private IAdministrateurRepository administrateurRepository;
     private NutritionService nutritionService;
+    private ExerciceService exerciceService;
     //couplage faible
-    public AdministrateurService(IAdministrateurRepository administrateurRepository,NutritionService nutritionService) {
+    public AdministrateurService(IAdministrateurRepository administrateurRepository,NutritionService nutritionService,ExerciceService exerciceService) {
         this.administrateurRepository = administrateurRepository;
+        this.nutritionService = nutritionService;
         this.nutritionService = nutritionService;
     }
     /******************************Admin login*************************************/
@@ -44,6 +47,12 @@ public class AdministrateurService {
     public void updateNutrition(Long id , Nutrition updatedNutrition) {
         nutritionService.modifierNutrition(id, updatedNutrition);
     }
+    /******************************Exercice*************************************/
+    public Exercice creerExercice(Exercice exercice) {
+        return exerciceService.ajouterExercice(exercice);
+    }
+
+
 
 
 }
