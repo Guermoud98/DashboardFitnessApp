@@ -4,7 +4,7 @@ import ma.emsi.dashboardfitness.entities.Entrainement;
 import ma.emsi.dashboardfitness.entities.Utilisateur;
 import ma.emsi.dashboardfitness.repositories.IUtilisateurRepository;
 import org.springframework.stereotype.Service;
-import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
+
 
 import java.util.List;
 
@@ -32,7 +32,7 @@ public class UtilisateurService {
     }
    /** For user **/
     /***********************   Login ************************************/
-    public Utilisateur Login(String email, String password) {
+   /* public Utilisateur Login(String email, String password) {
         Utilisateur utilisateur = utilisateurRepository.findByEmail(email).orElse(null);
 
         if (utilisateur != null && new BCryptPasswordEncoder().matches(password, utilisateur.getPassword())) {
@@ -40,10 +40,10 @@ public class UtilisateurService {
         }
 
         return null;
-    }
+    }*/
 
     /************************* Inscription *************************************/
-    public Utilisateur Register(Utilisateur utilisateur) {
+    /*public Utilisateur Register(Utilisateur utilisateur) {
 
         if (!isValidEmail(utilisateur.getEmail())) {
             throw new IllegalArgumentException("Email invalid");
@@ -53,12 +53,12 @@ public class UtilisateurService {
         }
         return utilisateurRepository.saveUtilisateur(utilisateur);
     }
-
+*/
     /******************************  Update  ********************************/
     // this method update just the fields which the user choose  to update
     //here I used utilisateur as param because the method login returns user connected
     //Recommended to use this method in UserController not admin
-    public Utilisateur UpdateUtilisateur(Utilisateur utilisateur) {
+   /* public Utilisateur UpdateUtilisateur(Utilisateur utilisateur) {
         Utilisateur existingUser = utilisateurRepository.findByIdUtilisateur(utilisateur.getIdUtilisateur()).orElse(null);
         if (existingUser != null) {
             existingUser.setNom(utilisateur.getNom() != null ? utilisateur.getNom() : existingUser.getNom());
@@ -70,7 +70,7 @@ public class UtilisateurService {
 
         }
         return utilisateurRepository.saveUtilisateur(existingUser);
-    }
+    }*/
     /*******Affichage d'entrainement *******/
     public List<Entrainement> getRecommendedEntrainementsForUser(Utilisateur utilisateur)
     {
@@ -86,13 +86,13 @@ public class UtilisateurService {
 
     /******* For admin **********/
     //Recommended to use this method in AdminController
-    public Utilisateur UpdateUtilisateurById(long id) {
+    /*public Utilisateur UpdateUtilisateurById(long id) {
         Utilisateur exist = utilisateurRepository.findByIdUtilisateur(id).orElse(null);
         if (exist != null) {
             return UpdateUtilisateur(exist);
         }
         return null;
-    }
+    }*/
 
 
     /************************** Delete ***************************************/

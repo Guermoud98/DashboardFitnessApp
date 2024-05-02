@@ -26,7 +26,7 @@ public class UtilisateurRestController {
         this.utilisateurService = utilisateurService;
     }
 
-    @PostMapping(path = "/api/Utilisateurs/create")
+    /*@PostMapping(path = "/api/Utilisateurs/create")
     public ResponseEntity<Utilisateur> createUser(@RequestBody Utilisateur utilisateur) {
         Utilisateur createdUtilisateur = utilisateurService.Register(utilisateur);
         return ResponseEntity.status(HttpStatus.CREATED).body(createdUtilisateur);
@@ -39,19 +39,18 @@ public class UtilisateurRestController {
         }
         return ResponseEntity.ok(existingUser);
 
-    }
+    }*/
     @GetMapping(path = "/api/Utilisateurs/getAll")
     public ResponseEntity<List<Utilisateur>> getAllUtilisateurs() {
         List<Utilisateur> utilisateurs = utilisateurRepository.findAll();
         return ResponseEntity.ok(utilisateurs);
     }
-   @GetMapping(path = "/api/Utilisateurs/GetSuggestedEntrainement")
+   /*@GetMapping(path = "/api/Utilisateurs/GetSuggestedEntrainement")
    public ResponseEntity<List<Entrainement>> getWorkoutUtilisateur(@RequestParam String email , @RequestParam String password)
    {
        Utilisateur existingUser=utilisateurService.Login(email,password);
        List<Entrainement> workoutList=entrainementService.suggestEntrainementToUserByIMC(existingUser.getPoids(), existingUser.getTaille());
-
        return ResponseEntity.ok(workoutList);
 
-   }
+   }*/
 }
