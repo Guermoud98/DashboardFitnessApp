@@ -19,7 +19,6 @@ public class Exercice {
         private byte[] image;
         private String description;// l'objectif de cet exercice
         @ManyToOne
-
         @JoinColumn(name = "idEntrainement")
         private Entrainement entrainement;
 

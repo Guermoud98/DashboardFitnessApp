@@ -41,6 +41,9 @@ public class AdministrateurService {
     public Nutrition afficherNutritionById(Long id) {
         return nutritionService.getNutritionById(id);
     }
+    public void updateNutrition(Long id , Nutrition updatedNutrition) {
+        nutritionService.modifierNutrition(id, updatedNutrition);
+    }
 
 
 }
