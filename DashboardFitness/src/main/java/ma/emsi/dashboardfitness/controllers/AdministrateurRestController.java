@@ -65,9 +65,13 @@ public class AdministrateurRestController {
         return administrateurService.getExerciceById(idExercice);
     }
     /*************************** Utilisateurs ***********************/
-    @PostMapping(path="/utilisateur/inscription")
+    @PostMapping(path="/utilisateurs/inscription")
     public Utilisateur register(@RequestBody Utilisateur utilisateur) {
         return utilisateurService.Register(utilisateur);
+    }
+    @PutMapping(path="/utilisateurs/updateUtilisateur")
+    public Utilisateur UpdateUtilisateur(@RequestBody Utilisateur utilisateur) {
+        return utilisateurService.UpdateUtilisateur(utilisateur);
     }
 
 

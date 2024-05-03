@@ -72,6 +72,9 @@ public class AdministrateurService {
     public Utilisateur login(Utilisateur utilisateur) {
         return utilisateurService.Register(utilisateur);
     }
+    public Utilisateur UpdateUtilisateur(Utilisateur utilisateur) {
+        return utilisateurService.UpdateUtilisateur(utilisateur);
+    }
 
 
 
