@@ -57,6 +57,9 @@ public class AdministrateurService {
     public void deleteExercice(Long id) {
         exerciceService.supprimerExerciceById(id);
     }
+    public void modifierExercice(Long id , Exercice updatedExercice) {
+        exerciceService.modifierExercice(id, updatedExercice);
+    }
 
 
 

@@ -17,7 +17,7 @@ public class AdministrateurRestController {
     }
 
     /***************************Nutritions***********************/
-    @GetMapping(path = "/nutritions")
+    @GetMapping(path = "/nutritions/afficherTous")
     public List<Nutrition> getNutritions() {
         return administrateurService.afficherNutritions();
     }
@@ -29,7 +29,7 @@ public class AdministrateurRestController {
     public Nutrition getNutritionById(@PathVariable Long idNutrition) {
         return administrateurService.afficherNutritionById(idNutrition);
     }
-    @PutMapping(path="/nutritions/updateNutritions/{idNutrition}")
+    @PutMapping(path="/nutritions/updateNutrition/{idNutrition}")
     public void updateNutritions(@PathVariable Long idNutrition, @RequestBody Nutrition updatedNutrition) {
         administrateurService.updateNutrition(idNutrition, updatedNutrition);
     } //doesn't work
@@ -47,7 +47,10 @@ public class AdministrateurRestController {
     public void supprimerExercice(Long idExercice) {
         administrateurService.deleteExercice(idExercice);
     }
-
+    @PutMapping(path="/exercices/updateExercice/{idExercice}")
+    public void modifierExercice(@PathVariable Long idExercice, @RequestParam Exercice updatedExercice) {
+        administrateurService.modifierExercice(idExercice, updatedExercice);
+    }
 
 
 }
