@@ -7,6 +7,7 @@ import ma.emsi.dashboardfitness.entities.Utilisateur;
 import ma.emsi.dashboardfitness.repositories.IAdministrateurRepository;
 import ma.emsi.dashboardfitness.services.AdministrateurService;
 import ma.emsi.dashboardfitness.services.UtilisateurService;
+import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
@@ -173,6 +174,26 @@ public class AdministrateurRestController {
             return ResponseEntity.notFound().build();
         }
         return ResponseEntity.ok(entrainements);
+    }
+    // Créer un nouvel entraînement
+    @PostMapping("/entrainements")
+    public ResponseEntity<Void> createEntrainement(@RequestBody Entrainement entrainement) {
+        administrateurService.createEntrainement(entrainement);
+        return ResponseEntity.status(HttpStatus.CREATED).build();
+    }
+
+    // Supprimer un entraînement
+    @DeleteMapping("/entrainements")
+    public ResponseEntity<Void> deleteEntrainement(@RequestBody Entrainement entrainement) {
+        administrateurService.deleteEntrainement(entrainement);
+        return ResponseEntity.noContent().build();
+    }
+
+    // Supprimer un entraînement par son ID
+    @DeleteMapping("/entrainements/{id}")
+    public ResponseEntity<Void> deleteEntrainementById(@PathVariable Long id) {
+        administrateurService.deleteEntrainementById(id);
+        return ResponseEntity.noContent().build();
     }
 
 

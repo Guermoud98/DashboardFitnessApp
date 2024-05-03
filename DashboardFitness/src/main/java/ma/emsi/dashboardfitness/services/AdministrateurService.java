@@ -127,6 +127,20 @@ public class AdministrateurService {
     public List<Entrainement> getEntrainementsByNutrition(String nomNutrition) {
         return entrainementService.getEntrainementsByNutrition(nomNutrition);
     }
+    public void createEntrainement(Entrainement entrainement) {
+        entrainementService.createEntrainement(entrainement);
+    }
+
+    // Supprimer un entraînement
+    public void deleteEntrainement(Entrainement entrainement) {
+        entrainementService.deleteEntrainement(entrainement);
+    }
+
+    // Supprimer un entraînement par son ID
+    public void deleteEntrainementById(Long id) {
+        entrainementService.deleteEntrainementById(id);
+    }
+
 
 
 
