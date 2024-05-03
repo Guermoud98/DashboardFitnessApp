@@ -100,6 +100,33 @@ public class AdministrateurRestController {
             return ResponseEntity.notFound().build();
         }
     }
+    @GetMapping("/utilisateurs/prenom/{prenom}")
+    public ResponseEntity<List<Utilisateur>> getUtilisateursByPrenom(@PathVariable String prenom) {
+        List<Utilisateur> utilisateurs = administrateurService.getUtilisateursByPrenom(prenom);
+        if (!utilisateurs.isEmpty()) {
+            return ResponseEntity.ok(utilisateurs);
+        } else {
+            return ResponseEntity.notFound().build();
+        }
+    }
+    @GetMapping("/utilisateurs/taille/{taille}")
+    public ResponseEntity<List<Utilisateur>> getUtilisateursByTaille(@PathVariable long taille) {
+        List<Utilisateur> utilisateurs = administrateurService.getUtilisateursByTaille(taille);
+        if (!utilisateurs.isEmpty()) {
+            return ResponseEntity.ok(utilisateurs);
+        } else {
+            return ResponseEntity.notFound().build();
+        }
+    }
+    @GetMapping("/utilisateurs/poids/{poids}")
+    public ResponseEntity<List<Utilisateur>> getUtilisateursByPoids(@PathVariable int poids) {
+        List<Utilisateur> utilisateurs = administrateurService.getUtilisateursByPoids(poids);
+        if (!utilisateurs.isEmpty()) {
+            return ResponseEntity.ok(utilisateurs);
+        } else {
+            return ResponseEntity.notFound().build();
+        }
+    }
 
 
 

@@ -95,6 +95,17 @@ public class AdministrateurService {
     public List<Utilisateur> getUtilisateursByNom(String nom) {
         return utilisateurService.getUtilisateursByNom(nom);
     }
+    public List<Utilisateur> getUtilisateursByPrenom(String prenom) {
+        return utilisateurService.getUtilisateursByPrenom(prenom);
+    }
+
+    public List<Utilisateur> getUtilisateursByTaille(long taille) {
+        return utilisateurService.getUtilisateursByTaille(taille);
+    }
+
+    public List<Utilisateur> getUtilisateursByPoids(int poids) {
+        return utilisateurService.getUtilisateursByPoids(poids);
+    }
 
 
 
