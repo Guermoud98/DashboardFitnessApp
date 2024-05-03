@@ -75,6 +75,9 @@ public class AdministrateurService {
     public Utilisateur UpdateUtilisateur(Utilisateur utilisateur) {
         return utilisateurService.UpdateUtilisateur(utilisateur);
     }
+    public void DeleteUtilisateurById(Long id) {
+        utilisateurService.DeleteUtilisateurById(id);
+    }
 
 
 

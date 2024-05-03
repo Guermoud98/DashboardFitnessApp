@@ -64,7 +64,9 @@ public class AdministrateurRestController {
     public Exercice getExerciceById(@PathVariable Long idExercice) {
         return administrateurService.getExerciceById(idExercice);
     }
+
     /*************************** Utilisateurs ***********************/
+
     @PostMapping(path="/utilisateurs/inscription")
     public Utilisateur register(@RequestBody Utilisateur utilisateur) {
         return utilisateurService.Register(utilisateur);
@@ -72,6 +74,10 @@ public class AdministrateurRestController {
     @PutMapping(path="/utilisateurs/updateUtilisateur")
     public Utilisateur UpdateUtilisateur(@RequestBody Utilisateur utilisateur) {
         return utilisateurService.UpdateUtilisateur(utilisateur);
+    }
+    @DeleteMapping(path ="/utilisateurs/deleteById/{idUtilisateur}" )
+    public void DeleteUtilisateurById(@PathVariable Long idUtilisateur) {
+        utilisateurService.DeleteUtilisateurById(idUtilisateur);
     }
 
 
