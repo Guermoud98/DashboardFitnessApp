@@ -1,5 +1,6 @@
 package ma.emsi.dashboardfitness.controllers;
 
+import ma.emsi.dashboardfitness.entities.Entrainement;
 import ma.emsi.dashboardfitness.entities.Exercice;
 import ma.emsi.dashboardfitness.entities.Nutrition;
 import ma.emsi.dashboardfitness.entities.Utilisateur;
@@ -127,6 +128,15 @@ public class AdministrateurRestController {
             return ResponseEntity.notFound().build();
         }
     }
+
+    /*************************** Entrainement ***********************/
+
+    @GetMapping("/entrainements/afficherTous")
+    public ResponseEntity<List<Entrainement>> getAllEntrainements() {
+        List<Entrainement> entrainements = administrateurService.getAllEntrainements();
+        return ResponseEntity.ok(entrainements);
+    }
+
 
 
 

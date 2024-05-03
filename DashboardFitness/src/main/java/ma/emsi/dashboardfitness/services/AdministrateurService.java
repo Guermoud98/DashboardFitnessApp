@@ -2,10 +2,7 @@ package ma.emsi.dashboardfitness.services;
 
 
 import jdk.jshell.execution.Util;
-import ma.emsi.dashboardfitness.entities.Administrateur;
-import ma.emsi.dashboardfitness.entities.Exercice;
-import ma.emsi.dashboardfitness.entities.Nutrition;
-import ma.emsi.dashboardfitness.entities.Utilisateur;
+import ma.emsi.dashboardfitness.entities.*;
 import ma.emsi.dashboardfitness.repositories.IAdministrateurRepository;
 import ma.emsi.dashboardfitness.repositories.INutritionRepository;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -19,12 +16,14 @@ public class AdministrateurService {
     private NutritionService nutritionService;
     private ExerciceService exerciceService;
     private UtilisateurService utilisateurService;
+    private EntrainementService entrainementService;
     //couplage faible
-    public AdministrateurService(IAdministrateurRepository administrateurRepository,NutritionService nutritionService, ExerciceService exerciceService, UtilisateurService utilisateurService) {
+    public AdministrateurService(IAdministrateurRepository administrateurRepository,NutritionService nutritionService, ExerciceService exerciceService, UtilisateurService utilisateurService, EntrainementService entrainementService) {
         this.administrateurRepository = administrateurRepository;
         this.nutritionService = nutritionService;
        this.exerciceService = exerciceService;
        this.utilisateurService = utilisateurService;
+       this.entrainementService = entrainementService;
     }
     /******************************Admin login*************************************/
     public Administrateur AdminLogin(String username, String password) {
@@ -70,6 +69,7 @@ public class AdministrateurService {
     }
 
     /****************************** Users *************************************/
+
     /*public Utilisateur login(Utilisateur utilisateur) {
         return utilisateurService.Register(utilisateur);
     }*/
@@ -105,6 +105,11 @@ public class AdministrateurService {
 
     public List<Utilisateur> getUtilisateursByPoids(int poids) {
         return utilisateurService.getUtilisateursByPoids(poids);
+    }
+
+    /****************************** Entrainement *************************************/
+    public List<Entrainement> getAllEntrainements() {
+        return entrainementService.getAllEntrainements();
     }
 
 
