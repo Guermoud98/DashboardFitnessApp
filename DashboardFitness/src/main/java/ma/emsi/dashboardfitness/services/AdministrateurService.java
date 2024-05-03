@@ -1,6 +1,7 @@
 package ma.emsi.dashboardfitness.services;
 
 
+import jdk.jshell.execution.Util;
 import ma.emsi.dashboardfitness.entities.Administrateur;
 import ma.emsi.dashboardfitness.entities.Exercice;
 import ma.emsi.dashboardfitness.entities.Nutrition;
@@ -69,14 +70,17 @@ public class AdministrateurService {
     }
 
     /****************************** Users *************************************/
-    public Utilisateur login(Utilisateur utilisateur) {
+    /*public Utilisateur login(Utilisateur utilisateur) {
         return utilisateurService.Register(utilisateur);
-    }
+    }*/
     public Utilisateur UpdateUtilisateur(Utilisateur utilisateur) {
         return utilisateurService.UpdateUtilisateur(utilisateur);
     }
     public void DeleteUtilisateurById(Long id) {
         utilisateurService.DeleteUtilisateurById(id);
+    }
+    public List<Utilisateur> getAllUtilisateurs() {
+        return utilisateurService.getAllUtilisateurs();
     }
 
 
