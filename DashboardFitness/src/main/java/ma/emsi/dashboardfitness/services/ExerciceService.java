@@ -49,7 +49,7 @@ public class ExerciceService {
     public List<Exercice> afficherExercices() {
         return exerciceRepository.findAll();
     }
-    public Exercice getExerciceId(Long id) {
+    public Exercice getExerciceById(Long id) {
         return exerciceRepository.findById(id).orElse(null);
     }
     public List<Exercice> chercherExercicesParNom(String nom) {

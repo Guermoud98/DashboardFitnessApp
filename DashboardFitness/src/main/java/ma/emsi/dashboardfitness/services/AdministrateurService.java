@@ -60,6 +60,9 @@ public class AdministrateurService {
     public void modifierExercice(Long id , Exercice updatedExercice) {
         exerciceService.modifierExercice(id, updatedExercice);
     }
+    public Exercice getExerciceById(Long idExercice) {
+        return exerciceService.getExerciceById(idExercice);
+    }
 
 
 
