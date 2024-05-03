@@ -108,8 +108,24 @@ public class AdministrateurService {
     }
 
     /****************************** Entrainement *************************************/
+
     public List<Entrainement> getAllEntrainements() {
         return entrainementService.getAllEntrainements();
+    }
+    public List<Entrainement> getEntrainementByNom(String name) {
+        return entrainementService.getEntrainementByNom(name);
+    }
+
+    public List<Entrainement> getEntrainementByDuree(int duree) {
+        return entrainementService.getEntrainementByDuree(duree);
+    }
+
+    public Entrainement getEntrainementById(Long id) {
+        return entrainementService.getEntrainementById(id);
+    }
+
+    public List<Entrainement> getEntrainementsByNutrition(String nomNutrition) {
+        return entrainementService.getEntrainementsByNutrition(nomNutrition);
     }
 
 

@@ -136,6 +136,45 @@ public class AdministrateurRestController {
         List<Entrainement> entrainements = administrateurService.getAllEntrainements();
         return ResponseEntity.ok(entrainements);
     }
+    @GetMapping("/entrainements/nom/{nom}")
+    public ResponseEntity<List<Entrainement>> getEntrainementByNom(@PathVariable String nom) {
+        List<Entrainement> entrainements = administrateurService.getEntrainementByNom(nom);
+        if (entrainements.isEmpty()) {
+            return ResponseEntity.notFound().build();
+        }
+        return ResponseEntity.ok(entrainements);
+    }
+
+    // Endpoint pour obtenir les entraînements par durée
+    @GetMapping("/entrainements/duree/{duree}")
+    public ResponseEntity<List<Entrainement>> getEntrainementByDuree(@PathVariable int duree) {
+        List<Entrainement> entrainements = administrateurService.getEntrainementByDuree(duree);
+        if (entrainements.isEmpty()) {
+            return ResponseEntity.notFound().build();
+        }
+        return ResponseEntity.ok(entrainements);
+    }
+
+    // Endpoint pour obtenir un entraînement par ID
+    @GetMapping("/entrainements/{id}")
+    public ResponseEntity<Entrainement> getEntrainementById(@PathVariable Long id) {
+        Entrainement entrainement = administrateurService.getEntrainementById(id);
+        if (entrainement == null) {
+            return ResponseEntity.notFound().build();
+        }
+        return ResponseEntity.ok(entrainement);
+    }
+
+    // Endpoint pour obtenir les entraînements par nutrition
+    @GetMapping("/entrainements/nutrition/{nomNutrition}")
+    public ResponseEntity<List<Entrainement>> getEntrainementsByNutrition(@PathVariable String nomNutrition) {
+        List<Entrainement> entrainements = administrateurService.getEntrainementsByNutrition(nomNutrition);
+        if (entrainements.isEmpty()) {
+            return ResponseEntity.notFound().build();
+        }
+        return ResponseEntity.ok(entrainements);
+    }
+
 
 
 
