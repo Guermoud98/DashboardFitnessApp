@@ -4,6 +4,7 @@ package ma.emsi.dashboardfitness.services;
 import ma.emsi.dashboardfitness.entities.Administrateur;
 import ma.emsi.dashboardfitness.entities.Exercice;
 import ma.emsi.dashboardfitness.entities.Nutrition;
+import ma.emsi.dashboardfitness.entities.Utilisateur;
 import ma.emsi.dashboardfitness.repositories.IAdministrateurRepository;
 import ma.emsi.dashboardfitness.repositories.INutritionRepository;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -16,11 +17,13 @@ public class AdministrateurService {
     private IAdministrateurRepository administrateurRepository;
     private NutritionService nutritionService;
     private ExerciceService exerciceService;
+    private UtilisateurService utilisateurService;
     //couplage faible
-    public AdministrateurService(IAdministrateurRepository administrateurRepository,NutritionService nutritionService,ExerciceService exerciceService) {
+    public AdministrateurService(IAdministrateurRepository administrateurRepository,NutritionService nutritionService, ExerciceService exerciceService, UtilisateurService utilisateurService) {
         this.administrateurRepository = administrateurRepository;
         this.nutritionService = nutritionService;
-        this.nutritionService = nutritionService;
+       this.exerciceService = exerciceService;
+       this.utilisateurService = utilisateurService;
     }
     /******************************Admin login*************************************/
     public Administrateur AdminLogin(String username, String password) {
@@ -47,7 +50,8 @@ public class AdministrateurService {
     public void updateNutrition(Long id , Nutrition updatedNutrition) {
         nutritionService.modifierNutrition(id, updatedNutrition);
     }
-    /******************************Exercices*************************************/
+
+    /****************************** Exercices *************************************/
     public Exercice creerExercice(Exercice exercice) {
         return exerciceService.ajouterExercice(exercice);
     }
@@ -62,6 +66,11 @@ public class AdministrateurService {
     }
     public Exercice getExerciceById(Long idExercice) {
         return exerciceService.getExerciceById(idExercice);
+    }
+
+    /****************************** Users *************************************/
+    public Utilisateur login(Utilisateur utilisateur) {
+        return utilisateurService.Register(utilisateur);
     }
 
 

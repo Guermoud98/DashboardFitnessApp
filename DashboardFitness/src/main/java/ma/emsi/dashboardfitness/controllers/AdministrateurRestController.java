@@ -2,18 +2,22 @@ package ma.emsi.dashboardfitness.controllers;
 
 import ma.emsi.dashboardfitness.entities.Exercice;
 import ma.emsi.dashboardfitness.entities.Nutrition;
+import ma.emsi.dashboardfitness.entities.Utilisateur;
 import ma.emsi.dashboardfitness.repositories.IAdministrateurRepository;
 import ma.emsi.dashboardfitness.services.AdministrateurService;
+import ma.emsi.dashboardfitness.services.UtilisateurService;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
 @RestController
 public class AdministrateurRestController {
+    private final UtilisateurService utilisateurService;
     private AdministrateurService administrateurService;
 
-    public AdministrateurRestController(AdministrateurService administrateurService) {
+    public AdministrateurRestController(AdministrateurService administrateurService, UtilisateurService utilisateurService) {
         this.administrateurService = administrateurService;
+        this.utilisateurService = utilisateurService;
     }
 
     /***************************Nutritions***********************/
@@ -38,7 +42,8 @@ public class AdministrateurRestController {
         return administrateurService.createNutrition(nutrition);
     }
 
-    /***************************Exercice***********************/
+    /*************************** Exercice ***********************/
+
     @PostMapping(path= "/exercices/create")
     public Exercice createExercice(@RequestBody Exercice exercice) {
         return administrateurService.creerExercice(exercice);
@@ -59,6 +64,12 @@ public class AdministrateurRestController {
     public Exercice getExerciceById(@PathVariable Long idExercice) {
         return administrateurService.getExerciceById(idExercice);
     }
+    /*************************** Utilisateurs ***********************/
+    @PostMapping(path="/utilisateur/inscription")
+    public Utilisateur register(@RequestBody Utilisateur utilisateur) {
+        return utilisateurService.Register(utilisateur);
+    }
+
 
 
 }
