@@ -82,6 +82,10 @@ public class AdministrateurService {
     public List<Utilisateur> getAllUtilisateurs() {
         return utilisateurService.getAllUtilisateurs();
     }
+    public Utilisateur getUtilisateurById(Long id) {
+        return utilisateurService.getUtilisateurById(id);
+    }
+
 
 
 

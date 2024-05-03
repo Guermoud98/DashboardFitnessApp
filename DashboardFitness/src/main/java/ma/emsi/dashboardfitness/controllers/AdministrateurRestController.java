@@ -12,12 +12,11 @@ import java.util.List;
 
 @RestController
 public class AdministrateurRestController {
-    private final UtilisateurService utilisateurService;
+
     private AdministrateurService administrateurService;
 
-    public AdministrateurRestController(AdministrateurService administrateurService, UtilisateurService utilisateurService) {
+    public AdministrateurRestController(AdministrateurService administrateurService) {
         this.administrateurService = administrateurService;
-        this.utilisateurService = utilisateurService;
     }
 
     /***************************Nutritions***********************/
@@ -73,15 +72,19 @@ public class AdministrateurRestController {
     }*/
     @PutMapping(path="/utilisateurs/updateUtilisateur")
     public Utilisateur UpdateUtilisateur(@RequestBody Utilisateur utilisateur) {
-        return utilisateurService.UpdateUtilisateur(utilisateur);
+        return administrateurService.UpdateUtilisateur(utilisateur);
     }
     @DeleteMapping(path ="/utilisateurs/deleteById/{idUtilisateur}" )
     public void DeleteUtilisateurById(@PathVariable Long idUtilisateur) {
-        utilisateurService.DeleteUtilisateurById(idUtilisateur);
+        administrateurService.DeleteUtilisateurById(idUtilisateur);
     }
     @GetMapping(path="/utilisateurs/afficherTous")
     public List<Utilisateur> getUtilisateurs() {
-        return utilisateurService.getAllUtilisateurs();
+        return administrateurService.getAllUtilisateurs();
+    }
+    @GetMapping(path ="/utilisateurs/afficherById/{idUtilisateur}")
+    public Utilisateur getUtilisateurById(@PathVariable Long idUtilisateur) {
+        return administrateurService.getUtilisateurById(idUtilisateur);
     }
 
 
