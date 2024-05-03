@@ -140,6 +140,9 @@ public class AdministrateurService {
     public void deleteEntrainementById(Long id) {
         entrainementService.deleteEntrainementById(id);
     }
+    public void updateEntrainementById(Long id, Entrainement entrainement) {
+        entrainementService.updateEntrainementById(id, entrainement);
+    }
 
 
 

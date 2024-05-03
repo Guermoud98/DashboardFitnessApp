@@ -86,12 +86,17 @@ public class EntrainementService {
 
         return null;
     }
-    public Entrainement updateEntrainementById(long id) {
+    public void updateEntrainementById(long id, Entrainement entrainement) {
         Entrainement exist = entrainementRepository.findByIdEntrainement(id).orElse(null);
         if (exist != null) {
-            return updateEntrainement(exist);
+           exist.setNom((entrainement.getNom()));
+           exist.setDescription(entrainement.getDescription());
+           exist.setImcMin((entrainement.getImcMin()));
+           exist.setImcMax((entrainement.getImcMax()));
+           exist.setNutrition((entrainement.getNutrition()));
+           exist.setDuree(entrainement.getDuree());
         }
-        return null;
+
     }
 
     /***** For user ************/

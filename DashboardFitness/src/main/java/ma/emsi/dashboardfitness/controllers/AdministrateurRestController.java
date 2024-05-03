@@ -195,6 +195,11 @@ public class AdministrateurRestController {
         administrateurService.deleteEntrainementById(id);
         return ResponseEntity.noContent().build();
     }
+    //update entrainement by id
+    @PutMapping(path = "/entrainements/updateEntrainementById/{id}")
+    public void updateEntrainementById(@PathVariable Long id, @RequestBody Entrainement entrainement) {
+       administrateurService.updateEntrainementById(id, entrainement);
+    }
 
 
 
