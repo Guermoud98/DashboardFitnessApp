@@ -51,6 +51,10 @@ public class AdministrateurRestController {
     public void modifierExercice(@PathVariable Long idExercice, @RequestParam Exercice updatedExercice) {
         administrateurService.modifierExercice(idExercice, updatedExercice);
     }
+    @GetMapping(path="/exercices/afficherTous")
+    public List<Exercice> getExercices() {
+        return administrateurService.afficherExercices();
+    }
 
 
 }
