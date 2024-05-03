@@ -86,6 +86,10 @@ public class AdministrateurRestController {
     public Utilisateur getUtilisateurById(@PathVariable Long idUtilisateur) {
         return administrateurService.getUtilisateurById(idUtilisateur);
     }
+    @PutMapping(path = "/utilisateurs/updateUtilisateurById/{id}")
+    public Utilisateur UpdateUtilisateurById(@PathVariable Long id) {
+        return administrateurService.UpdateUtilisateurById(id);
+    }
 
 
 

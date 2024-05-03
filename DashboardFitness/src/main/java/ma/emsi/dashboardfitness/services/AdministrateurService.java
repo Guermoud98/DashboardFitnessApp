@@ -85,6 +85,13 @@ public class AdministrateurService {
     public Utilisateur getUtilisateurById(Long id) {
         return utilisateurService.getUtilisateurById(id);
     }
+    public Utilisateur UpdateUtilisateurById(long id) {
+        Utilisateur exist = utilisateurService.getUtilisateurById(id);
+        if (exist != null) {
+            return utilisateurService.UpdateUtilisateur(exist);
+        }
+        return null;
+    }
 
 
 

@@ -88,14 +88,18 @@ public class UtilisateurService {
 
     /******* For admin **********/
     //Recommended to use this method in AdminController
-    public Utilisateur UpdateUtilisateurById(long id) {
+    public void UpdateUtilisateurById(long id, Utilisateur utilisateur) {
         Utilisateur exist = utilisateurRepository.findByIdUtilisateur(id).orElse(null);
         if (exist != null) {
-            return UpdateUtilisateur(exist);
+            exist.setNom(utilisateur.getNom());
+            exist.setPrenom(utilisateur.getPrenom());
+            exist.setPoids(utilisateur.getPoids());
+            exist.setEmail(utilisateur.getEmail());
+            exist.setTaille(utilisateur.getTaille());
+            exist.setPassword(utilisateur.getPassword());
+            utilisateurRepository.save(exist);
         }
-        return null;
     }
-
 
     /************************** Delete ***************************************/
     public void DeleteUtilisateur(Utilisateur utilisateur) {
