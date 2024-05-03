@@ -92,6 +92,9 @@ public class AdministrateurService {
         }
         return null;
     }
+    public List<Utilisateur> getUtilisateursByNom(String nom) {
+        return utilisateurService.getUtilisateursByNom(nom);
+    }
 
 
 

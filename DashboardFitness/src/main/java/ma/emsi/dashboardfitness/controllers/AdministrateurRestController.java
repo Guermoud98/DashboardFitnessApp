@@ -6,6 +6,7 @@ import ma.emsi.dashboardfitness.entities.Utilisateur;
 import ma.emsi.dashboardfitness.repositories.IAdministrateurRepository;
 import ma.emsi.dashboardfitness.services.AdministrateurService;
 import ma.emsi.dashboardfitness.services.UtilisateurService;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
@@ -89,6 +90,15 @@ public class AdministrateurRestController {
     @PutMapping(path = "/utilisateurs/updateUtilisateurById/{id}")
     public Utilisateur UpdateUtilisateurById(@PathVariable Long id) {
         return administrateurService.UpdateUtilisateurById(id);
+    }
+    @GetMapping("/utilisateurs/nom/{nom}")
+    public ResponseEntity<List<Utilisateur>> getUtilisateursByNom(@PathVariable String nom) {
+        List<Utilisateur> utilisateurs = administrateurService.getUtilisateursByNom(nom);
+        if (!utilisateurs.isEmpty()) {
+            return ResponseEntity.ok(utilisateurs);
+        } else {
+            return ResponseEntity.notFound().build();
+        }
     }
 
 
