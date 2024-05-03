@@ -47,9 +47,15 @@ public class AdministrateurService {
     public void updateNutrition(Long id , Nutrition updatedNutrition) {
         nutritionService.modifierNutrition(id, updatedNutrition);
     }
-    /******************************Exercice*************************************/
+    /******************************Exercices*************************************/
     public Exercice creerExercice(Exercice exercice) {
         return exerciceService.ajouterExercice(exercice);
+    }
+    public List<Exercice> afficherExercices() {
+        return exerciceService.afficherExercices();
+    }
+    public void deleteExercice(Long id) {
+        exerciceService.supprimerExerciceById(id);
     }
 
 
