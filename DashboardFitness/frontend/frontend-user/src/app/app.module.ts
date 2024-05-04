@@ -7,15 +7,26 @@ import { MatButtonModule } from '@angular/material/button'; // Importation du mo
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
+
 import { UserTemplateComponent } from './user-template/user-template.component';
 import { LoginPageComponent } from './login-page/login-page.component';
 import {MatIcon} from "@angular/material/icon";
 
+import { provideAnimationsAsync } from '@angular/platform-browser/animations/async';
+import { RegisterTemplateComponent } from './register-page/register-template.component';
+import { RegisterPageComponent } from './register-page/register-page.component';
+
+
 @NgModule({
   declarations: [
     AppComponent,
+
     UserTemplateComponent,
     LoginPageComponent
+
+    RegisterTemplateComponent,
+    RegisterPageComponent
+
   ],
   imports: [
     BrowserModule,
