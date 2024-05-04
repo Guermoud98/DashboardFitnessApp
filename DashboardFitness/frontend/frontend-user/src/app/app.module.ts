@@ -13,7 +13,6 @@ import { LoginPageComponent } from './login-page/login-page.component';
 import {MatIcon} from "@angular/material/icon";
 
 import { provideAnimationsAsync } from '@angular/platform-browser/animations/async';
-import { RegisterTemplateComponent } from './register-page/register-template.component';
 import { RegisterPageComponent } from './register-page/register-page.component';
 
 
@@ -22,9 +21,7 @@ import { RegisterPageComponent } from './register-page/register-page.component';
     AppComponent,
 
     UserTemplateComponent,
-    LoginPageComponent
-
-    RegisterTemplateComponent,
+    LoginPageComponent,
     RegisterPageComponent
 
   ],
