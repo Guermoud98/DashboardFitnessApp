@@ -17,17 +17,27 @@ import { RegisterPageComponent } from './register-page/register-page.component';
 import {FormsModule} from "@angular/forms";
 import {MatOption} from "@angular/material/autocomplete";
 import {MatSelect} from "@angular/material/select";
-import {MatCard, MatCardContent, MatCardTitle} from "@angular/material/card";
+import {MatCard, MatCardContent, MatCardHeader, MatCardTitle} from "@angular/material/card";
 import {MatToolbar} from "@angular/material/toolbar";
-import {MatDatepicker, MatDatepickerInput, MatDatepickerToggle} from "@angular/material/datepicker";
+import {MatCalendar, MatDatepicker, MatDatepickerInput, MatDatepickerToggle} from "@angular/material/datepicker";
 import {MatRadioButton, MatRadioGroup} from "@angular/material/radio";
+import { DashboardPageComponent } from './dashboard-page/dashboard-page.component';
+import {MatProgressSpinner} from "@angular/material/progress-spinner";
+import {MatDatepickerModule} from '@angular/material/datepicker';
+import {MatFormField} from "@angular/material/form-field";
+import {MatNativeDateModule} from "@angular/material/core";
 
+import {Component} from '@angular/core';
+
+import {MatCardModule} from '@angular/material/card';
+import {provideNativeDateAdapter} from '@angular/material/core';
 
 @NgModule({
   declarations: [
     AppComponent,
     LoginPageComponent,
-    RegisterPageComponent
+    RegisterPageComponent,
+    DashboardPageComponent
 
   ],
   imports: [
@@ -43,13 +53,14 @@ import {MatRadioButton, MatRadioGroup} from "@angular/material/radio";
     MatSelect,
     MatCard,
     MatToolbar,
-    MatCardTitle,
-    MatCardContent,
-    MatDatepickerToggle,
-    MatDatepickerInput,
-    MatDatepicker,
-    MatRadioButton,
-    MatRadioGroup,
+    MatDatepickerModule,
+    MatFormField,
+    MatNativeDateModule,
+    MatInputModule,
+
+
+
+
     // Ajout du module des boutons
   ],
   providers: [], // ici on declare les  services
