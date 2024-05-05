@@ -8,19 +8,24 @@ import { MatButtonModule } from '@angular/material/button'; // Importation du mo
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 
-import { UserTemplateComponent } from './user-template/user-template.component';
+
 import { LoginPageComponent } from './login-page/login-page.component';
 import {MatIcon} from "@angular/material/icon";
 
 import { provideAnimationsAsync } from '@angular/platform-browser/animations/async';
 import { RegisterPageComponent } from './register-page/register-page.component';
+import {FormsModule} from "@angular/forms";
+import {MatOption} from "@angular/material/autocomplete";
+import {MatSelect} from "@angular/material/select";
+import {MatCard, MatCardContent, MatCardTitle} from "@angular/material/card";
+import {MatToolbar} from "@angular/material/toolbar";
+import {MatDatepicker, MatDatepickerInput, MatDatepickerToggle} from "@angular/material/datepicker";
+import {MatRadioButton, MatRadioGroup} from "@angular/material/radio";
 
 
 @NgModule({
   declarations: [
     AppComponent,
-
-    UserTemplateComponent,
     LoginPageComponent,
     RegisterPageComponent
 
@@ -33,6 +38,18 @@ import { RegisterPageComponent } from './register-page/register-page.component';
     MatInputModule, // Ajout du module des champs d'entrée
     MatButtonModule,
     MatIcon,
+    FormsModule,
+    MatOption,
+    MatSelect,
+    MatCard,
+    MatToolbar,
+    MatCardTitle,
+    MatCardContent,
+    MatDatepickerToggle,
+    MatDatepickerInput,
+    MatDatepicker,
+    MatRadioButton,
+    MatRadioGroup,
     // Ajout du module des boutons
   ],
   providers: [], // ici on declare les  services

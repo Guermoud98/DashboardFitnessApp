@@ -1,1 +1,47 @@
-<p>register-page works!</p>
+<div class="login-page">
+  <div class="login-container">
+    <div class="login-form-container">
+      <h2 class="login-title">Inscription</h2>
+      <form class="login-form" (ngSubmit)="onSubmit()" #inscriptionForm="ngForm">
+        <div class="row"> <!-- Première ligne -->
+          <mat-form-field class="input-field">
+            <mat-label>Email</mat-label>
+            <input matInput type="email" placeholder="Entrez votre email" name="email" ngModel required>
+          </mat-form-field>
+          <mat-form-field class="input-field">
+            <mat-label>Mot de passe</mat-label>
+            <input matInput type="password" placeholder="Entrez votre mot de passe" name="password" ngModel required>
+          </mat-form-field>
+        </div>
+        <div class="row"> <!-- Deuxième ligne -->
+          <mat-form-field class="input-field">
+            <mat-label>Taille (cm)</mat-label>
+            <input matInput type="number" placeholder="Entrez votre taille" name="taille" ngModel required min="1">
+          </mat-form-field>
+          <mat-form-field class="input-field">
+            <mat-label>Poids (kg)</mat-label>
+            <input matInput type="number" placeholder="Entrez votre poids" name="poids" ngModel required min="1">
+          </mat-form-field>
+        </div>
+        <div class="row"> <!-- Troisième ligne -->
+          <mat-form-field class="input-field">
+            <mat-label>Âge</mat-label>
+            <input matInput type="number" placeholder="Entrez votre âge" name="age" ngModel required min="1">
+          </mat-form-field>
+          <mat-form-field class="input-field">
+            <mat-label>Sexe</mat-label>
+            <mat-select placeholder="Sexe" name="sexe" ngModel required>
+              <mat-option value="F">Femme</mat-option>
+              <mat-option value="M">Homme</mat-option>
+            </mat-select>
+          </mat-form-field>
+        </div>
+        <!-- Bouton de soumission -->
+        <button mat-raised-button color="primary" class="submit-button" type="submit" [disabled]="!inscriptionForm.valid">S'inscrire</button>
+        <!-- Bouton de connexion -->
+        <button mat-raised-button color="accent" class="submit-button" type="button" (click)="onLogin()">Connexion</button>
+      </form>
+    </div>
+  </div>
+  <div class="background-image"></div>
+</div>
