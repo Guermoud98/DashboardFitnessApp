@@ -3,12 +3,10 @@ import React from 'react';
 
 const HeightCard = () => {
     return (
-        <div className="weight-card-container">
-            <div className="card weight-card">
+        <div className="height-card-container">
+            <div className="card weight-card ">
                 <div className="card-body d-flex align-items-center justify-content-center">
-                    <h5 className="card-title text-center">Your Height</h5>
-                    <p className="card-text text-center">Current Height: XXX lbs</p>
-                    {/* Add more content related to weight if needed */}
+                    <h5 className="card-title text-center">Your Height: 163cm </h5>
                 </div>
             </div>
         </div>

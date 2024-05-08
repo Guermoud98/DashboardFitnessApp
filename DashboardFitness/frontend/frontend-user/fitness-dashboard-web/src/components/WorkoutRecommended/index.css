@@ -9,9 +9,11 @@
 }
 
 .workout-item {
-    background-color: #ffffff; /* Couleur de fond des éléments de workout */
-    padding: 10px; /* Ajoutez un peu de padding autour des éléments */
     border-radius: 8px; /* Ajoutez des coins arrondis */
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); /* Ajoutez une ombre */
     text-align: center; /* Centrez le texte*/
+    background-color: #bb92be;
+}
+h5 {
+    text-align: center;
 }

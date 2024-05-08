@@ -5,14 +5,11 @@ const WeightCard = () => {
     return (
         <div className="weight-card-container">
             <div className="card weight-card">
-                <div className="card-body d-flex align-items-center justify-content-center">
-                    <h5 className="card-title text-center">Your Weight</h5>
-                    <p className="card-text text-center">Current Weight: XXX lbs</p>
-                    {/* Add more content related to weight if needed */}
+                <div className="card-body d-flex align-items-center justify-content-center weight">
+                    <h5 className="card-title text-center">Your current Weight: 50kgs</h5>
                 </div>
             </div>
         </div>
     );
 };
-
 export default WeightCard;

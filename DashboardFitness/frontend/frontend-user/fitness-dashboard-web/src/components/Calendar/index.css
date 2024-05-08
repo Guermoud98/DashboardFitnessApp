@@ -1,0 +1,20 @@
+.react-calendar {
+    font-size: 14px; /* Réduire la taille de la police */
+}
+
+.react-calendar__navigation {
+    font-size: 16px; /* Réduire la taille de la police de la navigation */
+}
+
+.react-calendar__tile {
+    padding: 8px; /* Réduire l'espacement des tuiles */
+}
+
+.react-calendar__tile--active {
+    background-color: #f0f0f0; /* Changer la couleur de fond des tuiles actives si nécessaire */
+}
+
+.react-calendar__tile--now {
+    color: #ff0000; /* Changer la couleur de la date actuelle si nécessaire */
+}
+

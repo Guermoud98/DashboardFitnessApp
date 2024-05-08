@@ -11,7 +11,7 @@ const CustomCalendar = () => {
     }
 
     return (
-        <div >
+        <div className="calendar" >
             <h2>Calendrier</h2>
             <Calendar
                 onChange={onChange}

@@ -7,6 +7,7 @@
     align-items: center; /* Centre les éléments verticalement */
     height:20px; /* Nouvelle hauteur du Header */
     margin: 30px;
+    width : 80%;
 }
 
 .input-group {
@@ -27,15 +28,4 @@
     font-size: 18px; /* Réduire la taille de la police de l'icône de la cloche */
     color: #6c757d; /* Modifier la couleur de l'icône de la cloche */
 }
-.height-card-bg {
-    background-color: #9860A3; /* Set the background color for HeightCard */
-    padding: 20px; /* Add padding for spacing */
-}
-.height-card-bg .card-body {
-    background-color: transparent; /* Set background color of the text container to transparent */
-}
 
-.weight-card-bg {
-    background-color: #9860A3; /* Set the background color for WeightCard */
-    padding: 20px; /* Add padding for spacing */
-}
