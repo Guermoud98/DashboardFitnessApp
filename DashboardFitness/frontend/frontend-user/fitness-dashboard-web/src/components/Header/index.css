@@ -1,9 +1,41 @@
-.profile {
-    width: 30px;
-    height: 30px;
+/* index.css */
+
+.header-container {
+   /* Ajoutez du padding pour l'espace autour du header */
+    display: flex; /* Utilisez Flexbox pour le conteneur principal */
+    justify-content: space-between; /* Répartit les éléments sur la ligne */
+    align-items: center; /* Centre les éléments verticalement */
+    height:20px; /* Nouvelle hauteur du Header */
+    margin: 30px;
 }
 
+.input-group {
+    margin-bottom: 0; /* Réduire la marge en bas de l'input-group */
+}
+
+.form-control {
+    height: 30px; /* Réduire la hauteur de l'input */
+    font-size: 14px; /* Réduire la taille de la police de l'input */
+}
+
+.profile {
+    width: 40px; /* Réduire la largeur de l'image de profil */
+    height: 40px; /* Réduire la hauteur de l'image de profil */
+}
 
 .bell-icon {
-    font-size: 20px;
+    font-size: 18px; /* Réduire la taille de la police de l'icône de la cloche */
+    color: #6c757d; /* Modifier la couleur de l'icône de la cloche */
+}
+.height-card-bg {
+    background-color: #9860A3; /* Set the background color for HeightCard */
+    padding: 20px; /* Add padding for spacing */
+}
+.height-card-bg .card-body {
+    background-color: transparent; /* Set background color of the text container to transparent */
+}
+
+.weight-card-bg {
+    background-color: #9860A3; /* Set the background color for WeightCard */
+    padding: 20px; /* Add padding for spacing */
 }

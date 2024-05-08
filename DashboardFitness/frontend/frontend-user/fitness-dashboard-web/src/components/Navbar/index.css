@@ -1,29 +1,31 @@
 nav {
-    background-color: #0096ff;
-    color: white;
-    width: 60%;
+    background-color: #4d2158; /* Nouvelle couleur de fond */
+    color: #bb92be; /* Nouvelle couleur du texte */
     height: 100vh;
     max-width: 200px;
     font-size: 20px;
 }
 
+.navbar-container {
+    width: 40%; /* La Navbar occupera 20% de la largeur totale */
+}
 
 .navbar-nav .nav-item {
     padding: 0 30px;
 }
 
-
 .navbar-nav .nav-item:hover {
-    background-color: white;
+    background-color: #bb92be; /* Nouvelle couleur de fond au survol */
     border-radius: 8px;
 }
 
-
 .navbar-nav .nav-item:hover a {
-    color: #0096ff;
+    color: #4d2158; /* Nouvelle couleur du texte au survol */
 }
 
-
 .navbar-nav .nav-item a {
-    color: white;
+    color: white; /* Nouvelle couleur du texte */
+}
+.nav-item {
+    margin-bottom: 20px; /* Ajoute de l'espace entre chaque élément de menu */
 }
