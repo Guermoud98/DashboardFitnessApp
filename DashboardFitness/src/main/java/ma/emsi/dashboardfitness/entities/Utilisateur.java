@@ -22,13 +22,15 @@ public class Utilisateur {
     private double poids;
     private double taille;
 
-    @ManyToOne
+   /* @ManyToOne
     @JoinColumn(name = "idEntrainement")
     private Entrainement entrainement;
-
-    @ManyToOne
+*/
+  /*  @ManyToOne
     @JoinColumn(name = "idMouvementObjectif")
-    private MouvementObjectif mouvementObjectif;
+    private MouvementObjectif mouvementObjectif;*/
+
+
 
 
 
