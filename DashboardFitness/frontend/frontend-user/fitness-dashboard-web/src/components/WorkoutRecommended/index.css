@@ -17,3 +17,14 @@
 h5 {
     text-align: center;
 }
+.workout-link {
+    text-decoration: none; /* Remove underline */
+    color: white;
+    font-size: large;
+    font-weight: bold;
+
+
+}
+.workout-link:hover {
+    color: #4d2158;
+}

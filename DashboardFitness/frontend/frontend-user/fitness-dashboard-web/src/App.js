@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import './App.css';
 import VerticalNavbar from './components/Navbar';
 import Header from './components/Header';
@@ -11,8 +11,15 @@ import NutritionCard from "./components/Nutritions";
 
 
 function App() {
-    return (
+    const [showNutritionCard, setShowNutritionCard] = useState(true);
+    const [workoutImage, setWorkoutImage] = useState(null);
 
+    // Fonction pour masquer la carte de nutrition
+    const hideNutritionCard = () => {
+        setShowNutritionCard(false);
+    };
+
+    return (
         <div className='d-flex'>
             <div className="navbar-container">
                 <VerticalNavbar/>
@@ -31,26 +38,36 @@ function App() {
                         </div>
                     </div>
                 </div>
-                <div className="nutrition-container">
-                    <div className="nutrition-card-bg">
-                        <NutritionCard/>
+                {/* Condition pour afficher la carte de nutrition */}
+                {showNutritionCard && (
+                    <div className="nutrition-container">
+                        <div className="nutrition-card-bg">
+                            <NutritionCard/>
+                        </div>
                     </div>
-                </div>
+                )}
             </div>
 
             <div className="main-content">
                 <div className="card-container">
                     <div className="card m-3 p-3">
-                        <WorkoutRecommended/>
+                        {/* Passer la fonction hideNutritionCard en tant que prop */}
+                        <WorkoutRecommended hideNutritionCard={hideNutritionCard} setWorkoutImage={setWorkoutImage} />
                     </div>
                     <div className="card m-3 p-3">
                         <Calendar/>
                     </div>
                 </div>
             </div>
+
+            {/* Afficher l'image de l'entraînement */}
+            {workoutImage && (
+                <div className="workout-image-container">
+                    <img src={workoutImage} alt="Workout" />
+                </div>
+            )}
         </div>
     );
 }
 
 export default App;
-
