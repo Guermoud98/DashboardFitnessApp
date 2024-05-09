@@ -1,5 +1,7 @@
 package ma.emsi.dashboardfitness.repositories;
 import ma.emsi.dashboardfitness.entities.Utilisateur;
+import org.assertj.core.api.Assertions;
+import org.junit.Test;
 import org.junit.jupiter.api.BeforeEach;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.jdbc.EmbeddedDatabaseConnection;
@@ -19,7 +21,7 @@ public class UtilisateurRepositoryTest {
      utilisateurRepository.save(Utilisateur.builder().prenom("ettaleby").nom("houda").email("houda@example.com").password("Houda123!").poids(63).taille(1.62).build());
 
  }
- /*
+
  @Test
  public void Should_Find_Utilisateur_ByEmail() {
 
@@ -34,7 +36,7 @@ public class UtilisateurRepositoryTest {
              .poids(63)
              .taille(1.62)
              .build();
-     Utilisateur result = utilisateurRepository.findByEmail(givenEmail);
+     Utilisateur result = utilisateurRepository.findByEmail(givenEmail).get();
      Assertions.assertThat(result).isNotNull();
      Assertions.assertThat(result).isEqualTo(expected);
 
@@ -43,10 +45,10 @@ public class UtilisateurRepositoryTest {
     public void Should_Not_Find_Utilisateur_ByEmail() {
 
         String givenEmail = "xxx@xxxxx.com";
-        Utilisateur result = utilisateurRepository.findByEmail(givenEmail);
+        Utilisateur result = utilisateurRepository.findByEmail(givenEmail).get();
         Assertions.assertThat(result).isNull();
 
 
     }
-*/
+
 }
