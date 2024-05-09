@@ -1,0 +1,70 @@
+.container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    background-color: rgb(195, 195, 196);
+    background-image: url('/public/images/bgImg.jpg'); /* Chemin relatif vers votre image dans le dossier public */
+    background-size: cover; /* Redimensionne l'image pour couvrir tout l'arrière-plan */
+    background-position: center; /* Centre l'image sur l'arrière-plan */
+  }
+  
+  .login-container {
+    width: 400px;
+    height: 300px;
+    margin: auto;
+    background-color: white;
+    border-radius: 10px;
+    padding: 20px;
+    text-align: center;
+   
+  }
+  
+  .login-container h2 {
+    text-align: center;
+  }
+  
+  .login-container form {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+  }
+  
+  .login-container input,
+  .login-container button {
+  width: 80%; /* Set the width of inputs and button */
+  padding: 8px;
+  margin: 10px auto; /* Center the inputs vertically */
+  border: 1px solid #ccc;
+  border-radius: 5px;;
+
+  }
+  
+  .login-container input[type="email"],
+  .login-container input[type="password"] {
+    width: 80%;
+    padding: 8px;
+    margin: 0 auto;
+    margin-bottom: 10px;
+    border-radius: 5px;
+    border: 1px solid #ccc;
+  }
+  
+  .login-container button {
+    background-color: #4d2158;
+    color: white;
+    width: 80%;
+    padding: 8px;
+    margin: 0 auto;
+    margin-bottom: 10px;
+    border-radius: 5px;
+    border: 1px solid #ccc;  
+    cursor: pointer;
+  }
+  
+  .login-container button:hover {
+    background-color: #3a1742;
+  }
+  .form-icon-lg {
+    font-size: 30px; /* Ajustez la taille de l'icône selon vos besoins */
+  }
