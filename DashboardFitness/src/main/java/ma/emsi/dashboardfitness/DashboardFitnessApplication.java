@@ -17,7 +17,7 @@ import org.springframework.context.annotation.ComponentScan;
 
 
 @SpringBootApplication
-public class DashboardFitnessApplication implements CommandLineRunner {
+public class DashboardFitnessApplication {
 
 
     @Autowired
@@ -32,7 +32,7 @@ public class DashboardFitnessApplication implements CommandLineRunner {
         SpringApplication.run(DashboardFitnessApplication.class, args);
     }
 
-
+/*
     @Override
     public void run(String... args) throws Exception {
         administrateurService.createNutrition(Nutrition.builder()
@@ -56,7 +56,6 @@ public class DashboardFitnessApplication implements CommandLineRunner {
                 .graisse(110)
                 .type("Post-workout")
                 .build());
-        /*********** Users ********/
         utilisateurService.Register(Utilisateur.builder()
                 .prenom("ettaleby")
                 .nom("neha")
@@ -109,5 +108,5 @@ public class DashboardFitnessApplication implements CommandLineRunner {
 
 
 
-    }
+    }*/
 }

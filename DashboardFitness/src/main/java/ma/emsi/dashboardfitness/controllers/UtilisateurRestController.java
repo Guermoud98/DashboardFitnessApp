@@ -25,7 +25,7 @@ public class UtilisateurRestController {
         return ResponseEntity.status(HttpStatus.CREATED).body(createdUtilisateur);
     }
 
-    @GetMapping(path = "/login")
+    @PostMapping(path = "/login")
     //  ResponseEntity Utile pour personnaliser la réponse en fonction de certaines conditions
     //  ou pour gérer différents types de réponses HTTP.
     public ResponseEntity<Utilisateur> login(@RequestParam String email, @RequestParam String password) {
