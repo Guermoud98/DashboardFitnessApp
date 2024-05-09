@@ -1,17 +1,10 @@
 package ma.emsi.dashboardfitness.repositories;
 import ma.emsi.dashboardfitness.entities.Utilisateur;
-import org.assertj.core.api.Assertions;
-import org.assertj.core.api.AssertionsForClassTypes;
-import org.junit.Assert;
 import org.junit.jupiter.api.BeforeEach;
-import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.jdbc.EmbeddedDatabaseConnection;
 import org.springframework.boot.test.autoconfigure.jdbc.AutoConfigureTestDatabase;
 import org.springframework.boot.test.autoconfigure.orm.jpa.DataJpaTest;
-import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
-import org.springframework.security.crypto.password.PasswordEncoder;
-import org.springframework.test.context.ActiveProfiles;
 
 @DataJpaTest
 @AutoConfigureTestDatabase(connection = EmbeddedDatabaseConnection.H2)
@@ -21,9 +14,9 @@ public class UtilisateurRepositoryTest {
     private IUtilisateurRepository utilisateurRepository;
  @BeforeEach
     public void setUp() {
-     utilisateurRepository.saveUtilisateur(Utilisateur.builder().prenom("ettaleby").nom("neha").email("neha@example.com").password("Neha123!").poids(63).taille(1.62).build());
-     utilisateurRepository.saveUtilisateur(Utilisateur.builder().prenom("ettaleby").nom("leila").email("leila@example.com").password("Leila123!").poids(63).taille(1.62).build());
-     utilisateurRepository.saveUtilisateur(Utilisateur.builder().prenom("ettaleby").nom("houda").email("houda@example.com").password("Houda123!").poids(63).taille(1.62).build());
+     utilisateurRepository.save(Utilisateur.builder().prenom("ettaleby").nom("neha").email("neha@example.com").password("Neha123!").poids(63).taille(1.62).build());
+     utilisateurRepository.save(Utilisateur.builder().prenom("ettaleby").nom("leila").email("leila@example.com").password("Leila123!").poids(63).taille(1.62).build());
+     utilisateurRepository.save(Utilisateur.builder().prenom("ettaleby").nom("houda").email("houda@example.com").password("Houda123!").poids(63).taille(1.62).build());
 
  }
  /*
