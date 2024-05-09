@@ -1,0 +1,90 @@
+.container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    background-color: rgb(195, 195, 196);
+    background-color: rgb(195, 195, 196);
+    background-image: url('/public/images/bgImg.jpg'); /* Chemin relatif vers votre image dans le dossier public */
+    background-size: cover; /* Redimensionne l'image pour couvrir tout l'arrière-plan */
+    background-position: center; /* Centre l'image sur l'arrière-plan */
+  }
+  
+  .signup-container {
+    width: 400px;
+    margin: auto;
+    background-color: white;
+    border-radius: 10px;
+    padding: 20px;
+  }
+  
+  .signup-container input[type="text"],
+  .signup-container input[type="email"],
+  .signup-container input[type="password"],
+  .signup-container input[type="number"] {
+    width: 80%;
+    padding: 8px;
+    margin: 0 auto;
+    margin-bottom: 10px;
+    border-radius: 5px;
+    border: 1px solid #ccc;
+  }
+  
+  .signup-container h2 {
+    text-align: center;
+  }
+  
+  .signup-container form {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+  }
+  
+  .signup-container input,
+  .signup-container button {
+    padding: 8px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+  }
+  .login-link
+  {
+  
+    background-color: #4d2158;
+    color: white;
+    border: none;
+    cursor: pointer;
+    text-align: center;
+  } 
+  .signup-container input[type="submit"],
+  .signup-container button {
+    background-color: #4d2158;
+    color: white;
+    border: none;
+    cursor: pointer;
+  }
+  
+  .signup-container input[type="submit"]:hover,
+  .signup-container button:hover {
+    background-color: #3a1742;
+  }
+  
+  .signup-container input[type="submit"]:disabled,
+  .signup-container button:disabled {
+    background-color: #ccc;
+    cursor: not-allowed;
+  }
+  
+  .login-button {
+    background-color: #bb92be;
+    color: white;
+    border: none;
+    cursor: pointer;
+    padding: 8px;
+    border-radius: 4px;
+    width: 100%;
+    margin-top: 10px;
+  }
+  
+  .login-button:hover {
+    background-color: #a078af;
+  }
