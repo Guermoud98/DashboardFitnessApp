@@ -14,6 +14,7 @@ public class ExerciceService {
 
     //injection de dependance
     public ExerciceService(IExerciceRepository exerciceRepository) {
+
         this.exerciceRepository = exerciceRepository;
     }
     //l'ajout d'un exercice par l'admin a la base de donnee
