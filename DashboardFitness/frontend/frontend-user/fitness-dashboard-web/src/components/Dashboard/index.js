@@ -12,40 +12,35 @@ function Dashboard() {
             <div className="navbar-container">
                 <VerticalNavbar/>
             </div>
-            <div className="info">
-                <h3>Welcome to My Fitness App</h3>
-                <div className="height-width-container">
-                    <div className="height-container">
-                        <div className="height-card-bg">
-                            <HeightCard/>
-                        </div>
+            <div style={{marginTop: '30px'}}>
+                <h3>Hello Maria</h3>
+                <div className='d-flex justify-content-between'>
+                    <div className="height-card-bg " style={{marginRight: '10px'}}>
+                        <HeightCard/>
                     </div>
-                    <div className="weight-container">
-                        <div className="weight-card-bg">
-                            <WeightCard/>
-                        </div>
-                    </div>
-                </div>
 
-                <div className="nutrition-container">
-                    <div className="nutrition-card-bg">
+                    <div className="weight-card-bg">
+                        <WeightCard/>
+                    </div>
+
+                </div>
+                <div className="nutrition-container" style={{marginTop: '20px', width: '600px' }}>
+                    <div className="nutrition-card-bg" style={{ margin: '10px' }}>
                         <NutritionCard/>
                     </div>
                 </div>
-
             </div>
 
-            <div className="main-content">
+            <div className="main-content" style={{position: 'absolute', top: 0, right: 0}}>
                 <div className="card-container">
                     <div className="card m-3 p-3">
-                        <WorkoutRecommended />
+                    <WorkoutRecommended />
                     </div>
                     <div className="card m-3 p-3">
                         <Calendar/>
                     </div>
                 </div>
             </div>
-
 
         </div>
     );

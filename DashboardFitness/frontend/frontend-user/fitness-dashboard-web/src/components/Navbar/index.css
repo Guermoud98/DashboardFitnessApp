@@ -7,7 +7,7 @@ nav {
 }
 
 .navbar-container {
-    width: 40%; /* La Navbar occupera 20% de la largeur totale */
+    width: 20%; /* La Navbar occupera 40% de la largeur totale */
 }
 
 .navbar-nav .nav-item {

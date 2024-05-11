@@ -3,13 +3,11 @@ import React from 'react';
 
 const WeightCard = () => {
     return (
-        <div className="weight-card-container">
-            <div className="card weight-card">
-                <div className="card-body d-flex align-items-center justify-content-center weight">
-                    <h5 className="card-title text-center">Your current Weight: 50kgs</h5>
-                </div>
-            </div>
+        <div style={{ marginTop: '15px', fontWeight: 'bold',border: '1px solid #ccc', padding: '10px', borderRadius: '5px' }}>
+            <div>Your Weight : 50Kgs  </div>
         </div>
+
+
     );
 };
 export default WeightCard;
