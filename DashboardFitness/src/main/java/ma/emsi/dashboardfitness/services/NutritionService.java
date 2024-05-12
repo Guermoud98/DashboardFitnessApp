@@ -46,6 +46,7 @@ public class NutritionService {
     }
     //afficher toutes les nutritions
     public List<Nutrition > afficherNutritions() {
+
         return nutritionRepository.findAll();
     }
     public Nutrition getNutritionById(Long id) {

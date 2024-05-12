@@ -1,6 +1,7 @@
 package ma.emsi.dashboardfitness.controllers;
 
 import ma.emsi.dashboardfitness.entities.Entrainement;
+import ma.emsi.dashboardfitness.entities.Nutrition;
 import ma.emsi.dashboardfitness.entities.Utilisateur;
 import ma.emsi.dashboardfitness.services.UtilisateurService;
 import org.springframework.http.HttpStatus;
@@ -68,8 +69,11 @@ public class UtilisateurRestController {
         }
 
         return ResponseEntity.status(HttpStatus.ACCEPTED).body(updated);
-
-
+    }
+    @GetMapping(path = "/nutritions/afficherTous")
+    public List<Nutrition> getNutritions() {
+        List<Nutrition> nutritions = utilisateurService.afficherNutritions();
+        return nutritions;
     }
 
 

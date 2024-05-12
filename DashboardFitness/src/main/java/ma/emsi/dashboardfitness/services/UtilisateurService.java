@@ -1,6 +1,7 @@
 package ma.emsi.dashboardfitness.services;
 
 import ma.emsi.dashboardfitness.entities.Entrainement;
+import ma.emsi.dashboardfitness.entities.Nutrition;
 import ma.emsi.dashboardfitness.entities.Utilisateur;
 import ma.emsi.dashboardfitness.repositories.IUtilisateurRepository;
 import org.springframework.stereotype.Service;
@@ -11,6 +12,7 @@ import java.util.List;
 public class UtilisateurService {
     private final IUtilisateurRepository utilisateurRepository;
     private final EntrainementService entrainementService;
+    private NutritionService nutritionService;
 
     public UtilisateurService(IUtilisateurRepository utilisateurRepository, EntrainementService entrainementService) {
         this.utilisateurRepository = utilisateurRepository;
@@ -140,4 +142,8 @@ public class UtilisateurService {
         return utilisateurRepository.findByPoids(poids);
     }
 
+    //afficher nutritions
+    public List<Nutrition> afficherNutritions() {
+        return nutritionService.afficherNutritions();
+    }
 }
