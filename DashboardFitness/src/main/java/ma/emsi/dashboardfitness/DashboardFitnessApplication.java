@@ -29,7 +29,7 @@ public class DashboardFitnessApplication implements CommandLineRunner {
     EntrainementService entrainementService;
 
 
-    public static void main(String[] args) {
+    public static void main(String[] args)  {
 
         SpringApplication.run(DashboardFitnessApplication.class, args);
     }
@@ -109,27 +109,74 @@ public class DashboardFitnessApplication implements CommandLineRunner {
                 .build());
 
     } */
-        administrateurService.createNutrition(Nutrition.builder()
-                .nomNutrition("Glute-Building Meal")
-                .proteine(200)
+    administrateurService.createNutrition(Nutrition.builder()
+             .nomNutrition("Carrot Pilaf")
+                .proteine(12)
                 .calorie(100)
-                .graisse(40)
+                .graisse(16)
                 .type("workout")
                 .build());
         administrateurService.createNutrition(Nutrition.builder()
-                .nomNutrition("Glute-Strengthening Meal")
+                .nomNutrition("Cropped Miguel")
                 .proteine(50)
                 .calorie(200)
                 .graisse(110)
                 .type("Post-workout")
                 .build());
         administrateurService.createNutrition(Nutrition.builder()
-                .nomNutrition("Workout-For-Weak-")
+                .nomNutrition("Curied Kale")
                 .proteine(50)
                 .calorie(200)
                 .graisse(110)
                 .type("Post-workout")
                 .build());
+        administrateurService.createNutrition(Nutrition.builder()
+                .nomNutrition("Tuna Pasta")
+                .proteine(150)
+                .calorie(300)
+                .graisse(50)
+                .type("Petit-déjeuner")
+                .build());
 
-    }
+        administrateurService.createNutrition(Nutrition.builder()
+                .nomNutrition("Moroccan Burger")
+                .proteine(100)
+                .calorie(250)
+                .graisse(80)
+                .type("Collation")
+                .build());
+
+        administrateurService.createNutrition(Nutrition.builder()
+                .nomNutrition("Roasted Teriyaki")
+                .proteine(120)
+                .calorie(280)
+                .graisse(60)
+                .type("Déjeuner")
+                .build());
+
+        administrateurService.createNutrition(Nutrition.builder()
+                .nomNutrition("Sausage Lenstil")
+                .proteine(130)
+                .calorie(320)
+                .graisse(70)
+                .type("Collation")
+                .build());
+
+        administrateurService.createNutrition(Nutrition.builder()
+                .nomNutrition("Scotch Broth")
+                .proteine(110)
+                .calorie(270)
+                .graisse(90)
+                .type("Dîner")
+                .build());
+
+        administrateurService.createNutrition(Nutrition.builder()
+                .nomNutrition("Smoothie bowl")
+                .proteine(33)
+                .calorie(50)
+                .graisse(4)
+                .type("Collation")
+                .build());
+
+}
 }

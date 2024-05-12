@@ -6,9 +6,9 @@ import dinner from '../../../Assets/Healthy-chicken-pad-Thai-dinner.jpg';
 
 const NutritionCard = () => {
     return (
-        <div className="card-group" >
+        <div className="card-group" style = {{marginRight: "20px"}}>
             {/* Card 1 */}
-            <div className="card">
+            <div className="card" >
                 {/* Image */}
                 <img className="card-img-top" src={smoothieBowlImage} alt="Smoothie Bowl" width="180" height="180" />
 
@@ -17,13 +17,13 @@ const NutritionCard = () => {
                     {/* Title */}
                     <h5 className="card-title">Smoothie Bowl</h5>
 
-                    <p className="card-text">A delicious and nutritious breakfast option.</p>
-                    <a href="#" className="btn btn-primary">Read more</a>
+                    <p className="card-text">A delicious and nutritious breakfast.</p>
+                    <a href="#" className="btn btn-primary" style = {{justifyContent:"center"}}>Read more</a>
                 </div>
             </div>
 
             {/* Card 2 */}
-            <div className="card">
+            <div className="card" >
                 {/* Image */}
                 <img className="card-img-top" src={lunch} alt="chicken burritos" width="180" height="180" />
 

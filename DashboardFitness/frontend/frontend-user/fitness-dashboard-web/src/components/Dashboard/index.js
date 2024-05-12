@@ -69,8 +69,8 @@ const Dashboard = () => {
                     <div>
                         {showPhotos && (
                             <div>
-                                <img src={images[currentImageIndex]}  alt="Your Image" style={{ width: '300px', marginTop: '20px' }} />
-                                <p>Countdown: {countdown}</p>
+                                <img src={images[currentImageIndex]}  alt="Your Image" style={{ width: '250px', height:"250px", marginTop: '20px', marginLeft: '150px' }} />
+                                <p style={{ marginLeft: '210px', fontWeight: 'bold'}}>Countdown: {countdown}</p>
                             </div>
                         )}
                     </div>

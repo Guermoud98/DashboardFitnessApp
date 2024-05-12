@@ -4,18 +4,20 @@ import ma.emsi.dashboardfitness.entities.Entrainement;
 import ma.emsi.dashboardfitness.entities.Nutrition;
 import ma.emsi.dashboardfitness.entities.Utilisateur;
 import ma.emsi.dashboardfitness.repositories.IUtilisateurRepository;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
 
 @Service
 public class UtilisateurService {
-    private final IUtilisateurRepository utilisateurRepository;
+    @Autowired
+    private IUtilisateurRepository utilisateurRepository;
     private final EntrainementService entrainementService;
+    @Autowired
     private NutritionService nutritionService;
 
-    public UtilisateurService(IUtilisateurRepository utilisateurRepository, EntrainementService entrainementService) {
-        this.utilisateurRepository = utilisateurRepository;
+    public UtilisateurService(EntrainementService entrainementService) {
         this.entrainementService = entrainementService;
     }
 
