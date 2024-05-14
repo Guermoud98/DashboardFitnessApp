@@ -128,7 +128,23 @@ public class DashboardFitnessApplication implements CommandLineRunner {
                 .proteine(50)
                 .calorie(200)
                 .graisse(110)
-                .type("Post-workout")
+               // .type("Post-workout")
+                       /* .ingredient("1 tsp rapeseed or coconut oil\n" +
+                                "1 onion, chopped\n" +
+                                "1 tbsp grated ginger\n" +
+                                "2 garlic cloves, crushed\n" +
+                                "1 sweet potato (about 200g), peeled and cut into 2cm cubes\n" +
+                                "1 tsp turmeric\n" +
+                                "2 tsp ground cumin\n" +
+                                "2 tbsp medium or hot curry powder\n" +
+                                "400g can chickpeas, rinsed\n" +
+                                "150ml low-fat coconut milk\n" +
+                                "500ml vegetable stock (see tip, below)\n" +
+                                "160g kale, chopped\n" +
+                                "1 lime, juiced\n" +
+                                "1 red chilli, finely chopped (optional)")
+                .recipe("Heat the oil in a large pan and fry the onion for 5 mins. Add the ginger and garlic, fry for 1 min more, then stir in the sweet potato, spices and chickpeas. Cook for another 5 mins, adding a little water if the spices stick to the pan.\n" +
+                        "Pour in the coconut milk and 400ml of the stock, then bring to a simmer and cook for 8 mins. Season, then transfer a quarter of the soup to a blender and whizz until smooth. Pour in the reserved stock to loosen, if needed, then add back to the pan with the remaining soup. Stir in the kale and cook for 5 mins. Add the lime juice, then ladle into bowls and scatter over the chilli, if you like.")*/
                 .build());
         administrateurService.createNutrition(Nutrition.builder()
                 .nomNutrition("Tuna Pasta")

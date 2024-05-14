@@ -16,4 +16,6 @@ public class Nutrition {
     private float proteine;
     private float graisse;
     private String type;
+   //private String ingredient;
+    //private String recipe;
 }
