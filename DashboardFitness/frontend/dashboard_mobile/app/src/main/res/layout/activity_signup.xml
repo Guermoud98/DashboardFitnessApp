@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:padding="16dp">
+
+    <EditText
+        android:id="@+id/etSignupNom"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="Nom" />
+    <EditText
+        android:id="@+id/etSignupPrenom"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="Prenom" />
+
+    <EditText
+        android:id="@+id/etSignupPoids"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="Poids" />
+    <EditText
+        android:id="@+id/etSignupTaille"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="Taille" />
+
+    <EditText
+        android:id="@+id/etSignupEmail"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="Email" />
+    <EditText
+        android:id="@+id/etSignupPassword"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="Password"
+        android:inputType="textPassword" />
+
+
+    <Button
+        android:id="@+id/btnSignup"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Sign Up" />
+    <Button
+        android:id="@+id/btnSignupLogin"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Login" />
+
+</LinearLayout>
