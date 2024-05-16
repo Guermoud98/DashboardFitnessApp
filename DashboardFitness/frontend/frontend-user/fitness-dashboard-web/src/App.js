@@ -1,23 +1,28 @@
-import React, { useState } from 'react';
-import './App.css';
-import VerticalNavbar from './components/Navbar';
-import Header from './components/Header';
-import Calendar from './components/Calendar';
-import WorkoutRecommended from './components/WorkoutRecommended';
-import WeightCard from "./components/Weight";
-import HeightCard from "./components/Height";
-import Body from "./components/Body";
-import NutritionCard from "./components/Nutritions/NutritionDashboard";
-import Dashboard from "./components/Dashboard";
+// App.js
+import React from 'react';
+import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
+import Login from './components/Login';
+import Dashboard from './components/Dashboard';
 import NutritionList from "./components/Nutritions/NutritionMenu";
+import NutritionMenu from "./components/Nutritions/NutritionMenu";
+import NutritionDashboard from "./components/Nutritions/NutritionDashboard";
+import SignUp from "./components/SignUp";
+import UserProfile from "./components/UserProfile";
 
 
-function App() {
+const App = () => {
     return (
+        <Router>
+            <Routes>
+                <Route path="/login" element={<Login />} />
+                <Route path="/signup" element={<SignUp />} />
+                <Route path="/dashboard" element={<Dashboard />} />
+                <Route path="/nutritionsList" element={<NutritionMenu />} />
+                <Route path="/profile" element={<UserProfile />} />
 
-        <NutritionList/>
-
+            </Routes>
+        </Router>
     );
-}
+};
 
 export default App;

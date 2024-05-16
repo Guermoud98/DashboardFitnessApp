@@ -1,3 +1,11 @@
 <resources>
     <string name="app_name">dashboard_mobile</string>
+    <string name="nutrition_5">Nutrition 5</string>
+    <string name="nutrition_4">Nutrition 4</string>
+    <string name="nutrition_6">Nutrition 6</string>
+    <string name="nutrition_7">Nutrition 7</string>
+    <string name="curried_kale">Curried Kale</string>
+    <string name="cropped_miguel">cropped_miguel</string>
+    <string name="les_nutritions_recommand_es">Les nutritions recommandées</string>
+    <string name="carrot_pilaf">carrot_pilaf</string>
 </resources>

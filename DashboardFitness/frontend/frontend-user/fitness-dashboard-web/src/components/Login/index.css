@@ -4,7 +4,7 @@
     align-items: center;
     height: 100vh;
     background-color: rgb(195, 195, 196);
-    background-image: url('/public/images/bgImg.jpg'); /* Chemin relatif vers votre image dans le dossier public */
+    background-image: url('../../Assets/Login/bgImg.jpg'); /* Chemin relatif vers votre image dans le dossier public */
     background-size: cover; /* Redimensionne l'image pour couvrir tout l'arrière-plan */
     background-position: center; /* Centre l'image sur l'arrière-plan */
   }

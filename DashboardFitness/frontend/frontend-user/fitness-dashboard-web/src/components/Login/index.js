@@ -5,6 +5,7 @@ import 'react-toastify/dist/ReactToastify.css';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faEnvelope, faLock, faUser } from '@fortawesome/free-solid-svg-icons';
 import './index.css';
+import {Link} from "react-router-dom";
 //npm install @fortawesome/fontawesome-svg-core @fortawesome/free-solid-svg-icons @fortawesome/react-fontawesome
 
 const Login = () => {
@@ -74,10 +75,14 @@ const Login = () => {
             <FontAwesomeIcon icon={faLock} size="lg" />
             <input type="password" name="password" placeholder="Mot de passe" value={formData.password} onChange={handleChange} className="form-input" />
           </div>
+          <Link to="/dashboard" className="dashboard-name">
           <button type="submit" disabled={isLoading || loginReussi} className={`submit-button ${isLoading ? 'loading' : ''}`}>
             {loginReussi ? 'Connexion réussie' : 'Se connecter'}
           </button>
+          </Link>
         </form>
+
+
         {champsVides && <p>Veuillez remplir tous les champs</p>}
         {loginReussi && <p>Connexion réussie !</p>}
         {isLoading && <p>Chargement en cours...</p>}
