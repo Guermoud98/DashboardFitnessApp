@@ -148,4 +148,9 @@ public class UtilisateurService {
     public List<Nutrition> afficherNutritions() {
         return nutritionService.afficherNutritions();
     }
+
+    public Utilisateur getUserByEmail(String email) {
+        return utilisateurRepository.findByEmail(email).get();
+    }
+
 }

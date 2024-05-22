@@ -14,10 +14,10 @@ const WorkoutRecommended = ({ togglePhotos }) => {
                     <a className="workout-link" href="#" onClick={handleClick}>Workout for beginners</a>
                 </div>
                 <div className="workout-item">
-                    <a className="workout-link" href="#">Workout for intermediate</a>
+                    <a className="workout-link" href="#" onClick={handleClick}>Workout for intermediate</a>
                 </div>
                 <div className="workout-item">
-                    <a className="workout-link" href="#">Workout for advanced</a>
+                    <a className="workout-link" href="#" onClick={handleClick}>Workout for advanced</a>
                 </div>
                 {/* Ajoutez d'autres workouts recommandés ici */}
             </div>

@@ -193,14 +193,7 @@ public class DashboardFitnessApplication implements CommandLineRunner {
                 .graisse(4)
                 .type("Collation")
                 .build());
-        utilisateurService.Register(Utilisateur.builder()
-                .prenom("ettaleby")
-                .nom("neha")
-                .email("neha@example.com")
-                .password("Neha123!")
-                .poids(63)
-                .taille(1.62)
-                .build());
+
 
 
 }

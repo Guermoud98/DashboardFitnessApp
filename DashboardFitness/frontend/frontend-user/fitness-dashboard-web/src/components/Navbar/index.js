@@ -15,11 +15,6 @@ const VerticalNavbar = () => {
                     </a>
                 </li>
                 <li className="nav-item">
-                    <a className="nav-link" href="#">
-                        <FontAwesomeIcon icon={faDumbbell} /> Workouts
-                    </a>
-                </li>
-                <li className="nav-item">
                     <a className="nav-link" href="/profile">
                         <FontAwesomeIcon icon={faUser} /> Profile
                     </a>

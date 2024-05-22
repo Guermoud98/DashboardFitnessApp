@@ -18,7 +18,7 @@ const NutritionCard = () => {
                     <h5 className="card-title">Smoothie Bowl</h5>
 
                     <p className="card-text">A delicious and nutritious breakfast.</p>
-                    <a href="#" className="btn btn-primary" style = {{justifyContent:"center"}}>Read more</a>
+                    <a href="/nutritionsList" className="btn btn-primary" style = {{justifyContent:"center"}}>Read more</a>
                 </div>
             </div>
 
@@ -32,7 +32,7 @@ const NutritionCard = () => {
                     {/* Title */}
                     <h5 className="card-title">chicken burritos</h5>
                     <p className="card-text">A healthy chicken burritos for lunch.</p>
-                    <a href="#" className="btn btn-primary">Read more</a>
+                    <a href="/nutritionsList" className="btn btn-primary">Read more</a>
                 </div>
             </div>
 
@@ -47,7 +47,7 @@ const NutritionCard = () => {
                     <h5 className="card-title">Healthy pad Thai</h5>
 
                     <p className="card-text">Healthy pad Thai for dinner</p>
-                    <a href="#" className="btn btn-primary">Read more</a>
+                    <a href="/nutritionsList" className="btn btn-primary">Read more</a>
                 </div>
             </div>
         </div>

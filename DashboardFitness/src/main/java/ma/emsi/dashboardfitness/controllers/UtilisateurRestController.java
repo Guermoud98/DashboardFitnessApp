@@ -75,6 +75,15 @@ public class UtilisateurRestController {
         List<Nutrition> nutritions = utilisateurService.afficherNutritions();
         return nutritions;
     }
+    // afficher le profil d'un utilisateur
+    @GetMapping(path = "/Profile")
+    public ResponseEntity<Utilisateur> getUserProfile(@RequestParam String email) {
+        Utilisateur userProfile = utilisateurService.getUserByEmail(email);
+        if (userProfile == null) {
+            return ResponseEntity.status(HttpStatus.NOT_FOUND).build();
+        }
+        return ResponseEntity.ok(userProfile);
+    }
 
 
 
